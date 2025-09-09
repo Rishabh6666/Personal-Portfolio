@@ -70,14 +70,4 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
-// ===== THEME TOGGLE (DARK / LIGHT MODE) =====
-const toggleTheme = document.createElement("button");
-toggleTheme.innerText = "🌙";
-toggleTheme.classList.add("btn", "theme-toggle");
-document.body.appendChild(toggleTheme);
 
-toggleTheme.onclick = () => {
-    document.documentElement.classList.toggle("light");
-    toggleTheme.innerText =
-        document.documentElement.classList.contains("light") ? "☀️" : "🌙";
-};
