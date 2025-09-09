@@ -27,12 +27,13 @@
 
  }
 
- body{
-    background: linear-gradient(270deg, #1f242d, #323946, #0ef);
+body {
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #0ef, #ff0066);
   background-size: 600% 600%;
   animation: gradientBG 12s ease infinite;
-    width: 100%
- }
+  width: 100%;
+}
+
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -599,10 +600,5 @@
    margin-top: -10px;
    display: block;
 }
-:root.light {
-  --bg-color: #f5f5f5;
-  --second-bg-color: #e4e4e4;
-  --text-color: #111;
-  --main-color: #007bff;
-}
+
 
