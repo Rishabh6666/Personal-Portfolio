@@ -1,32 +1,46 @@
 // Menu Toggle
-const menuToggle = document.querySelector('#menu-toggle');
-const navbar = document.querySelector('.navbar');
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
+
 menuToggle.addEventListener('click', () => {
-    menuToggle.querySelector('i').classList.toggle('bx-x');
     navbar.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('bx-menu');
+    icon.classList.toggle('bx-x');
 });
 
-// Close menu on link click
+// Close menu when clicking any link
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('click', () => {
-        menuToggle.querySelector('i').classList.remove('bx-x');
         navbar.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.add('bx-menu');
+        icon.classList.remove('bx-x');
     });
 });
 
-// Active Navigation & Sticky Header + Back to Top + Scroll Arrow Fade
+// Close menu when clicking outside (optional improvement)
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        navbar.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.add('bx-menu');
+        icon.classList.remove('bx-x');
+    }
+});
+
+// Sticky header + active link + scroll indicator
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 150;
-        const height = sec.offsetHeight;
-        const id = sec.getAttribute('id');
-        if (top >= offset && top < offset + height) {
-            current = id;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
         }
     });
 
@@ -37,61 +51,36 @@ window.addEventListener('scroll', () => {
         }
     });
 
+    // Sticky header
     document.querySelector('.header').classList.toggle('sticky', window.scrollY > 100);
 
-    // Auto-close mobile menu
-    menuToggle.querySelector('i').classList.remove('bx-x');
-    navbar.classList.remove('active');
-
-    // Back to top
-    document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
-
-    // Fade scroll indicator when user has scrolled past home
+    // Scroll indicator fade
     const indicator = document.querySelector('.scroll-indicator');
     if (indicator) {
-        if (window.scrollY > window.innerHeight * 0.6) {
-            indicator.style.opacity = '0';
-        } else {
-            indicator.style.opacity = '0.7';
-        }
+        indicator.style.opacity = window.scrollY > window.innerHeight * 0.6 ? '0' : '0.7';
     }
+
+    // Back to top button
+    document.querySelector('.back-to-top')?.classList.toggle('visible', window.scrollY > 300);
 });
 
-// Scroll & Active Link
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.navbar a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 150;
-        const height = sec.offsetHeight;
-        if (top >= offset && top < offset + height) current = sec.getAttribute('id');
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-    });
-
-    document.querySelector('.header').classList.toggle('sticky', window.scrollY > 100);
-    document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
-
-    const indicator = document.querySelector('.scroll-indicator');
-    if (indicator) indicator.style.opacity = window.scrollY > window.innerHeight * 0.6 ? '0' : '0.7';
-});
-
-// Smooth Scroll
-document.querySelectorAll('.navbar a, .back-to-top').forEach(link => {
-    link.addEventListener('click', e => {
+// Smooth scrolling for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(link.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
-// ScrollReveal
-ScrollReveal({ distance: '80px', duration: 2000, delay: 200 });
+// ScrollReveal animations
+ScrollReveal({ 
+    distance: '80px', 
+    duration: 2000, 
+    delay: 200 
+});
+
 ScrollReveal().reveal('.home-content', { origin: 'left' });
 ScrollReveal().reveal('.home-image', { origin: 'right' });
 ScrollReveal().reveal('.timeline-item, .skill-btn', { origin: 'bottom', interval: 200 });
@@ -105,7 +94,7 @@ new Typed('.typed-text', {
     loop: true
 });
 
-// Skills Modal
+// Skills Modal (unchanged)
 document.addEventListener('DOMContentLoaded', () => {
     const skillButtons = document.querySelectorAll('.skill-btn');
     const skillModal = document.getElementById('skillModal');
@@ -135,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     modalClose.addEventListener('click', () => skillModal.style.display = 'none');
-    skillModal.addEventListener('click', e => { if (e.target === skillModal) skillModal.style.display = 'none'; });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') skillModal.style.display = 'none'; });
+    skillModal.addEventListener('click', e => { 
+        if (e.target === skillModal) skillModal.style.display = 'none'; 
+    });
+    document.addEventListener('keydown', e => { 
+        if (e.key === 'Escape') skillModal.style.display = 'none'; 
+    });
 });
