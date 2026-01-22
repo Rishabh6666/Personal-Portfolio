@@ -84,7 +84,13 @@ ScrollReveal().reveal('.contact form', { origin: 'bottom' });
 
 // Typed.js
 new Typed('.typed-text', {
-    strings: ['Full-Stack Developer', 'AI Enthusiast', 'Problem Solver', 'Tech Innovator'],
+   strings: [
+  'Full-Stack Developer',
+  'AI & ML Enthusiast',
+  'Software Engineer',
+  'Problem Solver'
+],
+
     typeSpeed: 80,
     backSpeed: 40,
     backDelay: 1200,
