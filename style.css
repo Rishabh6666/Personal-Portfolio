@@ -649,3 +649,66 @@ textarea {
         height: 24px;
     }
 }
+
+
+/* Add more top padding to home section so content doesn't stick under fixed header */
+.home {
+    position: relative;
+    padding-top: 12rem;          /* ← this creates space below fixed header */
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding-top: 10rem;      /* slightly less on mobile */
+    }
+}
+
+/* ────────────── Better spacing for social + button ────────────── */
+.social-links {
+    margin: 3rem 0 4rem 0;       /* more space below social icons */
+}
+
+.btn {
+    margin-top: 1rem;            /* extra breathing room if needed */
+}
+
+/* ────────────── Clean downward arrow (replaces old scroll-down) ────────────── */
+.scroll-indicator {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+.scroll-indicator .arrow {
+    width: 30px;
+    height: 30px;
+    border: solid var(--main-color);
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg) translate(-6px, -6px);
+    animation: bounce-down 2.2s infinite;
+}
+
+@keyframes bounce-down {
+    0%, 100%   { transform: rotate(45deg) translate(-6px, -6px); }
+    50%        { transform: rotate(45deg) translate(-6px, 0px); }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 3.5rem;
+    }
+    .scroll-indicator .arrow {
+        width: 26px;
+        height: 26px;
+        border-width: 0 3px 3px 0;
+        padding: 5px;
+    }
+}
