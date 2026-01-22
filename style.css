@@ -268,53 +268,146 @@ span {
 }
 
 /* Skills */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 3.5rem;
-}
-
-.skill-category {
+.skills {
     background: var(--second-bg);
-    padding: 3rem;
-    border-radius: 2rem;
+}
+
+.skills-subtitle {
     text-align: center;
-    transition: transform 0.4s;
-}
-
-.skill-category:hover {
-    transform: translateY(-8px);
-}
-
-.skill-category h3 {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    color: var(--accent-color);
-}
-
-.skill-category li {
     font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 5rem;
+}
+
+.skills-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.skill-btn {
+    padding: 2.2rem 2.5rem;
+    background: rgba(20, 25, 35, 0.6);
+    border: 1px solid rgba(76, 201, 240, 0.25);
+    border-radius: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1.2rem;
 }
 
-.skill-category i {
-    font-size: 2.8rem;
+.skill-btn:hover {
+    transform: translateY(-8px);
+    border-color: var(--main-color);
+    box-shadow: 0 15px 40px rgba(76, 201, 240, 0.3);
+    background: rgba(20, 25, 35, 0.8);
+}
+
+.skill-btn i {
+    font-size: 3.8rem;
     color: var(--main-color);
 }
 
-/* Education Timeline */
-.education-timeline {
+.skill-preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.skill-preview span {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(76, 201, 240, 0.15);
+    border-radius: 50px;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+/* Modal */
+.skill-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--second-bg);
+    padding: 3.5rem 3rem;
+    border-radius: 2rem;
+    width: 90%;
+    max-width: 620px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+    box-shadow: 0 20px 70px rgba(0,0,0,0.6);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 4.2rem;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: white;
+    transform: rotate(90deg) scale(1.15);
+}
+
+#modalTitle {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2.2rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#modalSkillsList {
+    list-style: none;
+    font-size: 1.8rem;
+    line-height: 2.1;
+}
+
+#modalSkillsList li {
+    margin-bottom: 1.2rem;
+    padding-left: 2.4rem;
+    position: relative;
+}
+
+#modalSkillsList li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+/* Education & Experience Timeline */
+.timeline {
     position: relative;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 0;
 }
 
-.education-timeline::before {
+.timeline::before {
     content: '';
     position: absolute;
     top: 0;
@@ -327,87 +420,101 @@ span {
     z-index: 1;
 }
 
-.education-item {
+.timeline-item {
     position: relative;
     width: 45%;
+    margin-bottom: 6rem;
     padding: 2.5rem 3rem;
     background: var(--second-bg);
     border-radius: 1.5rem;
-    margin-bottom: 5rem;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    transition: all 0.4s;
     z-index: 2;
 }
 
-.education-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(76, 201, 240, 0.25);
-}
-
-.education-item:nth-child(odd) {
+.timeline-item:nth-child(odd) {
     left: 0;
     text-align: right;
     padding-right: 8%;
 }
 
-.education-item:nth-child(even) {
+.timeline-item:nth-child(even) {
     left: 55%;
     text-align: left;
     padding-left: 8%;
 }
 
-.education-item i {
+.timeline-item i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 4.5rem;
+    font-size: 4.8rem;
     color: var(--accent-color);
     background: var(--bg-color);
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 50%;
     z-index: 3;
-    width: 8rem;
-    height: 8rem;
+    width: 9rem;
+    height: 9rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
+    box-shadow: 0 0 25px rgba(155,93,229,0.4);
 }
 
-.education-item:nth-child(odd) i {
-    right: -4rem;
-}
+.timeline-item:nth-child(odd) i { right: -4.5rem; }
+.timeline-item:nth-child(even) i { left: -4.5rem; }
 
-.education-item:nth-child(even) i {
-    left: -4rem;
-}
-
-.education-item::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 40px;
-    height: 4px;
-    background: var(--main-color);
-    transform: translateY(-50%);
-}
-
-.education-item:nth-child(odd)::after {
-    right: -4rem;
-}
-
-.education-item:nth-child(even)::after {
-    left: -4rem;
-}
-
-.education-item h3 {
+.timeline-content h3 {
     font-size: 2.3rem;
     margin-bottom: 1rem;
 }
 
-.education-item p {
-    font-size: 1.7rem;
-    line-height: 1.6;
+.timeline-content .date {
+    font-size: 1.6rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.timeline-content ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+}
+
+/* Mobile Timeline */
+@media (max-width: 900px) {
+    .timeline::before {
+        left: 4.5rem;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 2.5rem 2rem 2.5rem 11rem !important;
+        margin-bottom: 7rem;
+    }
+
+    .timeline-item i {
+        left: 1.5rem !important;
+        top: 2rem;
+        transform: none;
+    }
 }
 
 /* Projects */
@@ -433,7 +540,7 @@ span {
     transform: scale(1.04);
 }
 
-.project-image img {
+.project-box img {
     width: 100%;
     height: 260px;
     object-fit: cover;
@@ -444,7 +551,7 @@ span {
     transform: scale(1.08);
 }
 
-.project-overlay {
+.overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -456,31 +563,23 @@ span {
     text-align: center;
 }
 
-.project-box:hover .project-overlay {
+.project-box:hover .overlay {
     transform: translateY(0);
 }
 
-.project-overlay h3 {
+.overlay h3 {
     font-size: 2.3rem;
     margin-bottom: 1rem;
 }
 
-.project-overlay p {
+.overlay p {
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
 }
 
-.project-overlay a {
+.overlay a {
     color: var(--text-color);
     font-size: 1.7rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    transition: color 0.3s;
-}
-
-.project-overlay a:hover {
-    color: var(--main-color);
 }
 
 /* Contact */
@@ -510,10 +609,10 @@ textarea {
     width: 100%;
 }
 
-#form-message {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-top: 2rem;
+.contact form .btn {
+    display: block;
+    margin: 2.5rem auto 0;
+    width: fit-content;
 }
 
 /* Footer */
@@ -523,27 +622,28 @@ textarea {
     text-align: center;
 }
 
-.footer p {
-    font-size: 1.7rem;
-}
-
 .back-to-top {
-    display: inline-flex;
-    padding: 1.2rem;
-    background: var(--gradient);
-    border-radius: 50%;
-    color: #fff;
-    font-size: 2.5rem;
     position: fixed;
     bottom: 3rem;
     right: 3rem;
+    background: var(--gradient);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
     opacity: 0;
-    transition: 0.4s;
+    visibility: hidden;
+    transition: all 0.4s;
     z-index: 999;
 }
 
 .back-to-top.visible {
     opacity: 1;
+    visibility: visible;
 }
 
 /* Media Queries */
