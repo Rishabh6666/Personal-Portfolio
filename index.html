@@ -13,7 +13,7 @@
     <!-- Header -->
     <header class="header">
         <a href="#home" class="logo">Rishabh<span>Dev</span></a>
-        <nav class="navbar" id="navbar">
+        <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -26,37 +26,40 @@
         </div>
     </header>
 
-    <!-- Home -->
-    <section class="home" id="home">
-        <div class="home-container">
-            <div class="home-content">
-                <h1>Hi, I'm <span class="highlight-name">Rishabh Barhate</span></h1>
-                <h2>Innovative <span class="typed-text"></span></h2>
-                <p class="tagline">Crafting cutting-edge software that solves real-world problems with efficiency and elegance.</p>
-                <div class="social-links">
-                    <a href="https://github.com/Rishabh6666" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="mailto:rishabhedu6@gmail.com"><i class='bx bxs-envelope'></i></a>
-                    <a href="https://www.instagram.com/_rishabh.6" target="_blank"><i class='bx bxl-instagram'></i></a>
-                    <a href="https://www.linkedin.com/in/rishabh-barhate-1a6602218/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-                </div>
-                <a href="Rishabh Barhate_CV.pdf" class="btn" download>Download Resume</a>
+    <!-- Home Hero -->
+<section class="home" id="home">
+    <div class="home-container">
+        <div class="home-content">
+            <h1>Hi, I'm <span>Rishabh Barhate</span></h1>
+            <h2>Innovative <span class="typed-text"></span></h2>
+            <p class="tagline">Crafting cutting-edge software that solves real-world problems with efficiency and elegance.</p>
+            <div class="social-links">
+                <a href="https://github.com/Rishabh6666" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="mailto:rishabhedu6@gmail.com"><i class='bx bxs-envelope'></i></a>
+                <a href="https://www.instagram.com/_rishabh.6" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/rishabh-barhate-1a6602218/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
             </div>
-            <div class="home-image">
-                <img src="myproject/image/bg.png" alt="Rishabh Illustration">
-            </div>
+            <a href="Rishabh Barhate_CV.pdf" class="btn" download>Download Resume</a>
         </div>
-        <div class="scroll-indicator">
-            <div class="arrow"></div>
+
+        <div class="home-image">
+            <img src="myproject/image/ME.jpeg" alt="Rishabh Illustration">
         </div>
-    </section>
+    </div>
+
+    <!-- Simple downward arrow indicator -->
+    <div class="scroll-indicator">
+        <div class="arrow"></div>
+    </div>
+</section>
 
     <!-- About -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-content">
                 <h2>About <span>Me</span></h2>
-                <p>Electronics & Computer Science Engineer with strong expertise in Web Development, AI-driven applications, and data analysis.</p>
-                <p>Experienced in building scalable web solutions, AI-powered systems, and intuitive user interfaces. Passionate about problem-solving, innovation, and applying technology to real-world challenges.</p>
+                <p>As a B.E. graduate in Electronics and Computer Science from SIES-GST, Mumbai, I'm passionate about blending hardware knowledge with software innovation. With a CGPA of 8.62, I've honed skills in full-stack development, AI integration, and embedded systems. I'm eager to tackle challenging projects that push technological boundaries.</p>
+                <p>My approach: Solve problems creatively, write clean code, and always learn from failures. Let's build the future together!</p>
             </div>
         </div>
     </section>
@@ -64,58 +67,33 @@
     <!-- Skills -->
     <section class="skills" id="skills">
         <h2>My <span>Skills</span></h2>
-        <p class="skills-subtitle">Tap a category to explore full details</p>
-        <div class="skills-buttons">
-            <button class="skill-btn" data-category="programming">
-                <i class='bx bx-code-alt'></i>
-                Programming Languages
-                <div class="skill-preview">
-                    <span>Python</span><span>JavaScript</span><span>SQL</span><span>+2 more</span>
-                </div>
-            </button>
-            <button class="skill-btn" data-category="web">
-                <i class='bx bx-globe'></i>
-                Web Technologies
-                <div class="skill-preview">
-                    <span>HTML5</span><span>CSS3</span><span>Responsive Design</span><span>+2 more</span>
-                </div>
-            </button>
-            <button class="skill-btn" data-category="databases">
-                <i class='bx bx-data'></i>
-                Databases
-                <div class="skill-preview">
-                    <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>+1 more</span>
-                </div>
-            </button>
-            <button class="skill-btn" data-category="data-analysis">
-                <i class='bx bx-bar-chart-alt-2'></i>
-                Data Analysis & Visualization
-                <div class="skill-preview">
-                    <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>+2 more</span>
-                </div>
-            </button>
-            <button class="skill-btn" data-category="ml-ai">
-                <i class='bx bx-brain'></i>
-                Machine Learning & AI
-                <div class="skill-preview">
-                    <span>Scikit-learn</span><span>TensorFlow</span><span>Sentiment Analysis</span><span>+2 more</span>
-                </div>
-            </button>
-            <button class="skill-btn" data-category="tools">
-                <i class='bx bx-wrench'></i>
-                Development Tools & Platforms
-                <div class="skill-preview">
-                    <span>Git/GitHub</span><span>VS Code</span><span>Google Colab</span><span>+5 more</span>
-                </div>
-            </button>
-        </div>
-
-        <!-- Modal -->
-        <div class="skill-modal" id="skillModal">
-            <div class="modal-content">
-                <span class="modal-close" id="modalClose">×</span>
-                <h3 id="modalTitle"></h3>
-                <ul id="modalSkillsList"></ul>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <ul>
+                    <li><i class='bx bxl-html5'></i> HTML5</li>
+                    <li><i class='bx bxl-css3'></i> CSS3</li>
+                    <li><i class='bx bxl-javascript'></i> JavaScript</li>
+                    <li><i class='bx bxl-bootstrap'></i> Bootstrap</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <ul>
+                    <li><i class='bx bxl-python'></i> Python</li>
+                    <li><i class='bx bxl-django'></i> Django</li>
+                    <li><i class='bx bxl-flask'></i> Flask</li>
+                    <li><i class='bx bxl-php'></i> PHP</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <ul>
+                    <li><i class='bx bxl-mongodb'></i> MongoDB</li>
+                    <li><i class='bx bxl-postgresql'></i> PostgreSQL</li>
+                    <li>MySQL</li>
+                    <li>SQLite</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -123,67 +101,29 @@
     <!-- Education -->
     <section class="education" id="education">
         <h2>My <span>Education</span></h2>
-        <div class="timeline">
-            <div class="timeline-item">
+        <div class="education-timeline">
+            <div class="education-item">
                 <i class='bx bxs-graduation'></i>
-                <div class="timeline-content">
-                    <h3>B.E. in Electronics & Computer Science</h3>
-                    <p class="date">Jul 2021 – Jul 2025</p>
-                    <p>SIES Graduate School of Technology, Mumbai</p>
-                    <p>CGPA: 8.62</p>
-                    <p>Zonal Finalist – Smart India Hackathon</p>
-                    <p>IEEE Publications:</p>
-                    <ul>
-                        <li>LSTM-Driven Adaptive Assessment of Personality for Psychiatric Care (ICCCNT 2025)</li>
-                        <li>WealthWise: AI-Based Stock Analysis Tool (ICETEG 2025)</li>
-                    </ul>
-                </div>
+                <h3>B.E. in Electronics & Computer Science</h3>
+                <p>SIES Graduate School of Technology, Mumbai</p>
+                <p>CGPA: 8.62 | Key Subjects: DSA, DBMS, Web Tech, Embedded Systems</p>
             </div>
-            <div class="timeline-item">
+            <div class="education-item">
+                <i class='bx bxs-buildings'></i>
+                <h3>HSC - Science</h3>
+                <p>RV Nerurkar Jr College, Maharashtra Board</p>
+                <p>89.3% | Subjects: Physics, Chemistry, Maths, Computer Science</p>
+            </div>
+            <div class="education-item">
                 <i class='bx bxs-school'></i>
-                <div class="timeline-content">
-                    <h3>HSC - Science</h3>
-                    <p class="date">Jul 2019 – Apr 2021</p>
-                    <p>R.V. Nerurkar Junior College, Maharashtra Board</p>
-                    <p>89.3%</p>
-                    <p>District Level | Volleyball</p>
-                </div>
+                <h3>SSC</h3>
+                <p>Holy Angels School, CBSE</p>
+                <p>83.33%</p>
             </div>
         </div>
     </section>
 
-    <!-- Experience -->
-    <section class="experience" id="experience">
-        <h2>Work <span>Experience</span></h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <i class='bx bxs-briefcase'></i>
-                <div class="timeline-content">
-                    <h3>Technical Developer – Graphene Industries Pvt. Ltd.</h3>
-                    <p class="date">Oct 2025 – Dec 2025</p>
-                    <ul>
-                        <li>Contributed to feature development for CAREKIT, a healthcare-focused platform</li>
-                        <li>Designed and implemented intuitive UI components for early product milestones</li>
-                        <li>Collaborated with the team to solve technical challenges and enhance user experience</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <i class='bx bxs-briefcase'></i>
-                <div class="timeline-content">
-                    <h3>Web Development – Hexaphase Technologies LLP</h3>
-                    <p class="date">Jul 2025 – Sep 2025</p>
-                    <ul>
-                        <li>Contributing to the end-to-end development of web solutions while adhering to modern design and coding practices</li>
-                        <li>Developing responsive and interactive interfaces to enhance overall customer experience</li>
-                        <li>Working on performance optimization, ensuring cross-browser compatibility and smooth user experience</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Projects -->
+    <!-- Projects -->
     <section class="projects" id="projects">
         <h2>Featured <span>Projects</span></h2>
         <div class="projects-grid">
@@ -265,6 +205,7 @@
         <a href="#home" class="back-to-top"><i class='bx bx-up-arrow-alt'></i></a>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js"></script>
     <script src="script.js"></script>
