@@ -43,7 +43,7 @@
                 <a href="Rishabh Barhate_CV.pdf" class="btn" download>Download Resume</a>
             </div>
             <div class="home-image">
-                <img src="myproject/image/ME.jpeg" alt="Rishabh Illustration">
+                <img src="myproject/image/bg.png" alt="Rishabh Illustration">
             </div>
         </div>
         <div class="scroll-indicator">
@@ -62,70 +62,64 @@
         </div>
     </section>
 
-  <!-- Skills -->
-<section class="skills" id="skills">
-    <h2>My <span>Skills</span></h2>
-    <p class="skills-subtitle">Tap a category to explore full details</p>
-
-    <div class="skills-buttons">
-        <button class="skill-btn" data-category="programming">
-            <i class='bx bx-code-alt'></i>
-            Programming Languages
-            <div class="skill-preview">
-                <span>Python</span><span>JavaScript</span><span>SQL</span><span>+2 more</span>
-            </div>
-        </button>
-
-        <button class="skill-btn" data-category="web">
-            <i class='bx bx-globe'></i>
-            Web Technologies
-            <div class="skill-preview">
-                <span>HTML5</span><span>CSS3</span><span>Responsive Design</span><span>+2 more</span>
-            </div>
-        </button>
-
-        <button class="skill-btn" data-category="databases">
-            <i class='bx bx-data'></i>
-            Databases
-            <div class="skill-preview">
-                <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>+1 more</span>
-            </div>
-        </button>
-
-        <button class="skill-btn" data-category="data-analysis">
-            <i class='bx bx-bar-chart-alt-2'></i>
-            Data Analysis & Visualization
-            <div class="skill-preview">
-                <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>+2 more</span>
-            </div>
-        </button>
-
-        <button class="skill-btn" data-category="ml-ai">
-            <i class='bx bx-brain'></i>
-            Machine Learning & AI
-            <div class="skill-preview">
-                <span>Scikit-learn</span><span>TensorFlow</span><span>Sentiment Analysis</span><span>+2 more</span>
-            </div>
-        </button>
-
-        <button class="skill-btn" data-category="tools">
-            <i class='bx bx-wrench'></i>
-            Development Tools & Platforms
-            <div class="skill-preview">
-                <span>Git/GitHub</span><span>VS Code</span><span>Google Colab</span><span>+5 more</span>
-            </div>
-        </button>
-    </div>
-
-    <!-- Modal (unchanged) -->
-    <div class="skill-modal" id="skillModal">
-        <div class="modal-content">
-            <span class="modal-close" id="modalClose">×</span>
-            <h3 id="modalTitle"></h3>
-            <ul id="modalSkillsList"></ul>
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <h2>My <span>Skills</span></h2>
+        <p class="skills-subtitle">Tap a category to explore full details</p>
+        <div class="skills-buttons">
+            <button class="skill-btn" data-category="programming">
+                <i class='bx bx-code-alt'></i>
+                Programming Languages
+                <div class="skill-preview">
+                    <span>Python</span><span>JavaScript</span><span>SQL</span><span>+2 more</span>
+                </div>
+            </button>
+            <button class="skill-btn" data-category="web">
+                <i class='bx bx-globe'></i>
+                Web Technologies
+                <div class="skill-preview">
+                    <span>HTML5</span><span>CSS3</span><span>Responsive Design</span><span>+2 more</span>
+                </div>
+            </button>
+            <button class="skill-btn" data-category="databases">
+                <i class='bx bx-data'></i>
+                Databases
+                <div class="skill-preview">
+                    <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>+1 more</span>
+                </div>
+            </button>
+            <button class="skill-btn" data-category="data-analysis">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                Data Analysis & Visualization
+                <div class="skill-preview">
+                    <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>+2 more</span>
+                </div>
+            </button>
+            <button class="skill-btn" data-category="ml-ai">
+                <i class='bx bx-brain'></i>
+                Machine Learning & AI
+                <div class="skill-preview">
+                    <span>Scikit-learn</span><span>TensorFlow</span><span>Sentiment Analysis</span><span>+2 more</span>
+                </div>
+            </button>
+            <button class="skill-btn" data-category="tools">
+                <i class='bx bx-wrench'></i>
+                Development Tools & Platforms
+                <div class="skill-preview">
+                    <span>Git/GitHub</span><span>VS Code</span><span>Google Colab</span><span>+5 more</span>
+                </div>
+            </button>
         </div>
-    </div>
-</section>
+
+        <!-- Modal -->
+        <div class="skill-modal" id="skillModal">
+            <div class="modal-content">
+                <span class="modal-close" id="modalClose">×</span>
+                <h3 id="modalTitle"></h3>
+                <ul id="modalSkillsList"></ul>
+            </div>
+        </div>
+    </section>
 
     <!-- Education -->
     <section class="education" id="education">
@@ -190,7 +184,7 @@
         </div>
     </section>
 
-    <!-- Projects -->
+   <!-- Projects -->
     <section class="projects" id="projects">
         <h2>Featured <span>Projects</span></h2>
         <div class="projects-grid">
@@ -261,9 +255,7 @@
                 <input type="text" name="subject" placeholder="Subject" required>
             </div>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <div class="form-submit-wrapper">
-                <button type="submit" class="btn">Send Message</button>
-            </div>
+            <button type="submit" class="btn">Send Message</button>
         </form>
         <p id="form-message"></p>
     </section>
