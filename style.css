@@ -894,72 +894,87 @@ section {
     margin-top: 2.5rem;
 }
 
-/* Skills grid - more responsive on mobile */
-.skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+/* Skills Section */
+.skills {
+    padding: 12rem 10% 8rem;
 }
 
-/* Skills Buttons */
+.skills h2 {
+    text-align: center;
+    font-size: clamp(3.5rem, 7vw, 5rem);
+    margin-bottom: 6rem;
+}
+
+/* Buttons Container */
 .skills-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    margin: 4rem 0;
+    gap: 2rem 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Individual Button - refined style */
 .skill-btn {
-    padding: 1.4rem 2.8rem;
-    font-size: 1.8rem;
+    padding: 1.3rem 3rem;
+    font-size: 1.7rem;
     font-weight: 500;
-    background: var(--gradient);
-    color: white;
-    border: none;
+    color: var(--text-color);
+    background: rgba(20, 25, 35, 0.6);           /* semi-transparent dark bg */
+    border: 1px solid rgba(76, 201, 240, 0.25);  /* subtle border glow */
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(76, 201, 240, 0.25);
+    transition: all 0.35s ease;
+    backdrop-filter: blur(10px);                 /* glass effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
 }
 
 .skill-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(155, 93, 229, 0.4);
+    transform: translateY(-4px) scale(1.04);
+    border-color: var(--main-color);
+    box-shadow: 0 12px 35px rgba(76, 201, 240, 0.25);
+    background: rgba(20, 25, 35, 0.8);
 }
 
-.skill-btn::after {
+.skill-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* Optional inner shine effect on hover (very subtle) */
+.skill-btn::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        135deg,
+        transparent 40%,
+        rgba(76, 201, 240, 0.12) 50%,
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
-.skill-btn:active::after {
-    width: 300px;
-    height: 300px;
+.skill-btn:hover::before {
+    opacity: 1;
 }
 
-/* Modal Styles */
+/* Modal (unchanged but included for completeness) */
 .skill-modal {
     display: none;
     position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(5px);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
     align-items: center;
     justify-content: center;
+    z-index: 2000;
 }
 
 .modal-content {
@@ -967,37 +982,31 @@ section {
     padding: 3.5rem 3rem;
     border-radius: 2rem;
     width: 90%;
-    max-width: 600px;
+    max-width: 620px;
+    border: 1px solid rgba(76, 201, 240, 0.3);
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    border: 1px solid var(--main-color);
-    animation: modalFadeIn 0.4s ease;
-}
-
-@keyframes modalFadeIn {
-    from { opacity: 0; transform: scale(0.85); }
-    to   { opacity: 1; transform: scale(1); }
+    box-shadow: 0 20px 70px rgba(0,0,0,0.6);
 }
 
 .modal-close {
     position: absolute;
     top: 1.5rem;
     right: 2rem;
-    font-size: 4rem;
+    font-size: 4.2rem;
     color: var(--main-color);
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s;
 }
 
 .modal-close:hover {
     color: white;
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.15);
 }
 
 #modalTitle {
     font-size: 2.8rem;
-    margin-bottom: 2rem;
     text-align: center;
+    margin-bottom: 2.2rem;
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1006,12 +1015,12 @@ section {
 #modalSkillsList {
     list-style: none;
     font-size: 1.8rem;
-    line-height: 2.2;
+    line-height: 2.1;
 }
 
 #modalSkillsList li {
-    margin-bottom: 1rem;
-    padding-left: 2.5rem;
+    margin-bottom: 1.2rem;
+    padding-left: 2.4rem;
     position: relative;
 }
 
@@ -1023,19 +1032,17 @@ section {
     font-weight: bold;
 }
 
-/* Mobile adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     .skills-buttons {
-        gap: 1.5rem;
+        gap: 1.4rem;
     }
-    
     .skill-btn {
-        padding: 1.2rem 2.2rem;
-        font-size: 1.7rem;
+        padding: 1.1rem 2.4rem;
+        font-size: 1.6rem;
     }
-    
     .modal-content {
-        padding: 2.5rem 2rem;
-        width: 92%;
+        padding: 2.8rem 2.2rem;
+        width: 94%;
     }
 }
