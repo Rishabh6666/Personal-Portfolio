@@ -815,3 +815,10 @@ textarea {
     }
 }
 
+.typed-container {
+    display: inline-block;
+    min-width: 260px; /* adjust based on longest word */
+    text-align: left;
+}
+
+
