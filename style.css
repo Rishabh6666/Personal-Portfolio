@@ -815,6 +815,10 @@ textarea {
     }
 }
 
+.home-content h2 {
+    text-align: left;
+}
+
 .typed-container {
     display: inline-block;
     min-width: 260px; /* adjust based on longest word */
