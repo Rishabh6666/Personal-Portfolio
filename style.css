@@ -649,147 +649,43 @@ textarea {
 /* Media Queries */
 @media (max-width: 1024px) {
     .header { padding: 2rem 6%; }
-    section { padding: 10rem 6% 6rem; }
+    section { padding: 9rem 6% 6rem; }
 }
 
-@media (max-width: 768px) {
-    .menu-toggle { display: block; z-index: 1100; }
-
-    .navbar {
-        position: fixed;
-        inset: 0;
-        background: var(--second-bg);
+@media (max-width: 900px) {
+    .about-container {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease;
-        z-index: 1000;
-    }
-
-    .navbar.active { transform: translateX(0); }
-
-    .navbar a { font-size: 2.4rem; margin: 2.5rem 0; }
-
-    .home-container { flex-direction: column; text-align: center; gap: 4rem; }
-    .home-image { max-width: 280px; margin: 0 auto; }
-
-    .form-group { flex-direction: column; gap: 2rem; }
-
-    .skills-buttons { grid-template-columns: 1fr; gap: 2rem; }
-}
-
-
-/* Restore gradient on name */
-.highlight-name {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-}
-
-/* Mobile Menu - Full screen, solid background */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block !important;
-        z-index: 1200;
-        font-size: 4rem;
-        color: var(--main-color);
-        cursor: pointer;
-    }
-
-    .navbar {
-        position: fixed;
-        inset: 0;
-        background: var(--second-bg);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(-100%);
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        z-index: 1100;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-
-    .navbar.active {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    .navbar a {
-        font-size: 3rem;
-        margin: 2.5rem 0;
-        padding: 1.5rem 4rem;
-        width: 85%;
+        gap: 4rem;
         text-align: center;
-        border-radius: 1.2rem;
-        transition: all 0.3s;
     }
 
-    .navbar a:hover,
-    .navbar a.active {
-        background: rgba(76, 201, 240, 0.18);
-        color: var(--main-color);
+    
+
+    .scroll-down {
+        bottom: 2.5rem;
     }
 
-    /* Prevent body scroll when menu open */
-    body.menu-open {
-        overflow: hidden;
-    }
-}
-
-/* Optional: make header padding smaller on mobile */
-@media (max-width: 768px) {
-    .header {
-        padding: 1.8rem 5%;
-    }
-    section {
-        padding: 9rem 5% 6rem;
-    }
-}
-/* Gradient on name in hero */
-.home-content h1 .highlight-name {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-}
-
-/* Make sure name is visible and highlighted */
-.home-content h1 {
-    font-size: clamp(4.8rem, 11vw, 8rem);
-    line-height: 1.05;
-}
-
-/* Reduce padding on mobile sections to reduce scrolling */
-@media (max-width: 768px) {
-    section {
-        padding: 9rem 5% 6rem;
-    }
-    .skills, .education, .experience {
-        padding-top: 7rem;
-    }
-}
-/* Reduce vertical spacing on mobile so skills fit better */
-@media (max-width: 768px) {
-    .skills {
-        padding: 8rem 5% 6rem;
+    .education-timeline::before {
+        left: 40px;
+        transform: none;
     }
 
-    .skills-subtitle {
-        margin-bottom: 3rem;
+    .education-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 2.5rem 2.5rem 2.5rem 10rem;
+        margin-bottom: 6rem;
     }
 
-    .skills-buttons {
-        gap: 1.8rem;
+    .education-item i {
+        left: 10px;
+        top: 2.5rem;
+        transform: none;
     }
 
-    .skill-btn {
-        padding: 1.8rem 2rem;
+    .education-item::after {
+        display: none;
     }
 }
 
@@ -811,4 +707,117 @@ textarea {
     .form-group { flex-direction: column; gap: 2rem; }
 
     section { padding: 8rem 5% 5rem; }
+}
+
+@media (max-width: 480px) {
+    h2 { font-size: 3.4rem; }
+    .home-content h1 { font-size: 4.2rem; }
+    .btn { padding: 1.2rem 3.2rem; font-size: 1.6rem; }
+    .scroll-down span {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+/* Add more top padding to home section so content doesn't stick under fixed header */
+.home {
+    position: relative;
+    padding-top: 12rem;          /* ← this creates space below fixed header */
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding-top: 10rem;      /* slightly less on mobile */
+    }
+}
+
+/* ────────────── Better spacing for social + button ────────────── */
+.social-links {
+    margin: 3rem 0 4rem 0;       /* more space below social icons */
+}
+
+.btn {
+    margin-top: 1rem;            /* extra breathing room if needed */
+}
+
+/* ────────────── Clean downward arrow (replaces old scroll-down) ────────────── */
+.scroll-indicator {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+.scroll-indicator .arrow {
+    width: 30px;
+    height: 30px;
+    border: solid var(--main-color);
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg) translate(-6px, -6px);
+    animation: bounce-down 2.2s infinite;
+}
+
+@keyframes bounce-down {
+    0%, 100%   { transform: rotate(45deg) translate(-6px, -6px); }
+    50%        { transform: rotate(45deg) translate(-6px, 0px); }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 3.5rem;
+    }
+    .scroll-indicator .arrow {
+        width: 26px;
+        height: 26px;
+        border-width: 0 3px 3px 0;
+        padding: 5px;
+    }
+}
+@media (max-width: 900px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3.5rem;           /* reduced gap so things feel tighter */
+    }
+
+    .home-image {
+        flex: 0 0 auto;        /* stop forcing fixed basis */
+        max-width: 280px;      /* ← smaller on mobile – adjust between 240–300px */
+        width: 70%;            /* relative to screen width – feels balanced */
+        margin: 0 auto;        /* center it */
+        order: -1;             /* keep image on top */
+    }
+
+    .home-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;          /* circle looks better for portraits on mobile */
+        object-fit: cover;           /* prevent distortion if cropped */
+        aspect-ratio: 1 / 1;         /* force square crop – optional but clean */
+        box-shadow: 0 15px 40px rgba(76, 201, 240, 0.3);
+        transform: none;             /* no rotation on mobile */
+    }
+
+    .home-content {
+        padding: 0 1rem;             /* small side padding on very small screens */
+    }
+
+    .tagline {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-image {
+        max-width: 240px;
+        width: 65%;
+    }
 }
