@@ -199,7 +199,7 @@ span {
     width: 100%;
     border-radius: 38% 62% 45% 55% / 55% 40% 60% 45%;
     box-shadow: 0 20px 60px rgba(76, 201, 240, 0.35);
-    transform: rotate(3deg);
+    
 }
 
 /* Scroll Down Arrow */
