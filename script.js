@@ -6,7 +6,7 @@ menuToggle.addEventListener('click', () => {
     navbar.classList.toggle('active');
 });
 
-// Close menu when clicking links
+// Close menu on link click
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('click', () => {
         menuToggle.querySelector('i').classList.remove('bx-x');
@@ -14,7 +14,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
     });
 });
 
-// Active nav & sticky header + back-to-top
+// Active Navigation & Sticky Header + Back to Top + Scroll Arrow Fade
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
 
@@ -43,11 +43,22 @@ window.addEventListener('scroll', () => {
     menuToggle.querySelector('i').classList.remove('bx-x');
     navbar.classList.remove('active');
 
-    // Back to top visibility
+    // Back to top
     document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
+
+    // Fade out scroll-down arrow after scrolling a bit
+    const scrollIndicator = document.querySelector('.scroll-down');
+    if (scrollIndicator) {
+        if (window.scrollY > 150) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else {
+            scrollIndicator.style.opacity = '1';
+        }
+    }
 });
 
-// Smooth scrolling
+// Smooth Scrolling
 document.querySelectorAll('.navbar a, .back-to-top').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -81,7 +92,7 @@ new Typed('.typed-text', {
     loop: true
 });
 
-// Optional: simple project card tilt on hover
+// Project card tilt effect
 document.querySelectorAll('.project-box').forEach(box => {
     box.addEventListener('mousemove', e => {
         const rect = box.getBoundingClientRect();
@@ -96,7 +107,7 @@ document.querySelectorAll('.project-box').forEach(box => {
     });
 });
 
-// Contact form
+// Contact Form
 const form = document.querySelector('.contact form');
 const messageEl = document.getElementById('form-message');
 
