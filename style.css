@@ -572,25 +572,7 @@ textarea {
         text-align: center;
     }
 
-    .home-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 4rem;
-    }
-
-    .home-content {
-        max-width: 100%;
-    }
-
-    .home-image {
-        max-width: 340px;
-        order: -1;
-    }
-
-    .home-image img {
-        border-radius: 50%;
-        transform: none;
-    }
+    
 
     .scroll-down {
         bottom: 2.5rem;
@@ -710,5 +692,45 @@ textarea {
         height: 26px;
         border-width: 0 3px 3px 0;
         padding: 5px;
+    }
+}
+@media (max-width: 900px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3.5rem;           /* reduced gap so things feel tighter */
+    }
+
+    .home-image {
+        flex: 0 0 auto;        /* stop forcing fixed basis */
+        max-width: 280px;      /* ← smaller on mobile – adjust between 240–300px */
+        width: 70%;            /* relative to screen width – feels balanced */
+        margin: 0 auto;        /* center it */
+        order: -1;             /* keep image on top */
+    }
+
+    .home-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;          /* circle looks better for portraits on mobile */
+        object-fit: cover;           /* prevent distortion if cropped */
+        aspect-ratio: 1 / 1;         /* force square crop – optional but clean */
+        box-shadow: 0 15px 40px rgba(76, 201, 240, 0.3);
+        transform: none;             /* no rotation on mobile */
+    }
+
+    .home-content {
+        padding: 0 1rem;             /* small side padding on very small screens */
+    }
+
+    .tagline {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-image {
+        max-width: 240px;
+        width: 65%;
     }
 }
