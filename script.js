@@ -63,11 +63,15 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // ===== TYPED JS =====
 const typed = new Typed('.multiple-text', {
-    strings: ['Web Developer.', 'Front-End Developer.', 'Software Developer.'],
-    typeSpeed: 100,
-    backSpeed: 50,
-    backDelay: 1000,
-    loop: true
+  strings: [
+    'Scalable Web Applications.',
+    'Clean Front-End Interfaces.',
+    'Reliable Backend Systems.'
+  ],
+  typeSpeed: 90,
+  backSpeed: 45,
+  backDelay: 1400,
+  loop: true
 });
 
 
