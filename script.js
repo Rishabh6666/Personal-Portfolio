@@ -81,6 +81,7 @@ ScrollReveal().reveal('.about-content, .skills-grid .skill-category', { origin: 
 ScrollReveal().reveal('.about-image, .education-item, .experience-item', { origin: 'top', interval: 200 });
 ScrollReveal().reveal('.projects-grid .project-box', { scale: 0.9, interval: 200 });
 ScrollReveal().reveal('.contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.timeline-item', { origin: 'bottom', interval: 200 });
 
 // Typed.js
 new Typed('.typed-text', {
