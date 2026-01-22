@@ -131,3 +131,39 @@ form.addEventListener('submit', async e => {
         messageEl.style.color = 'red';
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const skillButtons = document.querySelectorAll('.skill-btn');
+    const skillModal = document.getElementById('skillModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSkillsList = document.getElementById('modalSkillsList');
+    const modalClose = document.getElementById('modalClose');
+
+    const skillsData = {
+        programming: { title: "Programming Languages", skills: ["Python", "JavaScript", "SQL", "Java", "C/C++"] },
+        web: { title: "Web Technologies", skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "REST APIs"] },
+        databases: { title: "Databases", skills: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"] },
+        "data-analysis": { title: "Data Analysis & Visualization", skills: ["Excel", "Pandas", "NumPy", "Matplotlib", "Power BI (basic)"] },
+        "ml-ai": { title: "Machine Learning & AI", skills: ["Scikit-learn", "TensorFlow (basic)", "Data Preprocessing", "Feature Engineering", "Sentiment Analysis"] },
+        tools: { title: "Development Tools & Platforms", skills: ["Git/GitHub", "VS Code", "PyCharm", "IntelliJ", "Google Colab", "Jupyter Notebook", "phpMyAdmin", "Adminer"] }
+    };
+
+    skillButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
+            const data = skillsData[category];
+            if (data) {
+                modalTitle.textContent = data.title;
+                modalSkillsList.innerHTML = data.skills.map(s => `<li>${s}</li>`).join('');
+                skillModal.style.display = 'flex';
+            }
+        });
+    });
+
+    modalClose.addEventListener('click', () => skillModal.style.display = 'none');
+    skillModal.addEventListener('click', e => { 
+        if (e.target === skillModal) skillModal.style.display = 'none'; 
+    });
+    document.addEventListener('keydown', e => { 
+        if (e.key === 'Escape') skillModal.style.display = 'none'; 
+    });
+});
