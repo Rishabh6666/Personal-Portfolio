@@ -39,21 +39,20 @@ window.addEventListener('scroll', () => {
 
     document.querySelector('.header').classList.toggle('sticky', window.scrollY > 100);
 
-    // Auto-close mobile menu on scroll
+    // Auto-close mobile menu
     menuToggle.querySelector('i').classList.remove('bx-x');
     navbar.classList.remove('active');
 
     // Back to top
     document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
 
-    // Fade out scroll-down arrow after scrolling a bit
-    const scrollIndicator = document.querySelector('.scroll-down');
-    if (scrollIndicator) {
-        if (window.scrollY > 150) {
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.pointerEvents = 'none';
+    // Fade scroll indicator when user has scrolled past home
+    const indicator = document.querySelector('.scroll-indicator');
+    if (indicator) {
+        if (window.scrollY > window.innerHeight * 0.6) {
+            indicator.style.opacity = '0';
         } else {
-            scrollIndicator.style.opacity = '1';
+            indicator.style.opacity = '0.7';
         }
     }
 });
