@@ -808,3 +808,16 @@ textarea {
         width: 65%;
     }
 }
+
+.home-content h1 .highlight-name {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Make sure name is visible and highlighted */
+.home-content h1 {
+    font-size: clamp(4.8rem, 11vw, 8rem);
+    line-height: 1.05;
+}
