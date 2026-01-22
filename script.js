@@ -1,31 +1,37 @@
-// Menu Toggle
+// Menu Toggle + body scroll lock
 const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.querySelector('.navbar');
+const navbar = document.getElementById('navbar');
+const navClose = document.getElementById('navClose');
 
 if (menuToggle && navbar) {
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navbar.classList.toggle('active');
+    const openMenu = () => {
+        navbar.classList.add('active');
+        document.body.classList.add('menu-open');
         const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('bx-menu');
-        icon.classList.toggle('bx-x');
-    });
+        icon.classList.remove('bx-menu');
+        icon.classList.add('bx-x');
+    };
 
+    const closeMenu = () => {
+        navbar.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('bx-x');
+        icon.classList.add('bx-menu');
+    };
+
+    menuToggle.addEventListener('click', openMenu);
+    navClose.addEventListener('click', closeMenu);
+
+    // Close on link click
     document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', () => {
-            navbar.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.add('bx-menu');
-            icon.classList.remove('bx-x');
-        });
+        link.addEventListener('click', closeMenu);
     });
 
+    // Close on outside click
     document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
-            navbar.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.add('bx-menu');
-            icon.classList.remove('bx-x');
+            closeMenu();
         }
     });
 }
