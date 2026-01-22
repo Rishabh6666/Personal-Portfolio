@@ -780,3 +780,122 @@ textarea {
     .home-image { max-width: 220px; width: 60%; }
     .scroll-indicator .arrow { width: 26px; height: 26px; border-width: 0 3px 3px 0; padding: 5px; }
 }
+/* All sections get padding-top so headings are not hidden under fixed header */
+section {
+    padding: 12rem 10% 8rem;   /* increased top padding */
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    section {
+        padding: 10rem 5% 6rem;   /* still enough space below navbar */
+    }
+}
+
+/* About - no image, centered text */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Unified timeline for Education & Experience */
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 5px;
+    background: var(--main-color);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    width: 45%;
+    margin-bottom: 6rem;
+    padding: 2.5rem 3rem;
+    background: var(--second-bg);
+    border-radius: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 8%;
+}
+
+.timeline-item:nth-child(even) {
+    left: 55%;
+    text-align: left;
+    padding-left: 8%;
+}
+
+.timeline-item i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.8rem;
+    color: var(--accent-color);
+    background: var(--bg-color);
+    padding: 1.2rem;
+    border-radius: 50%;
+    z-index: 3;
+    width: 9rem;
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(155,93,229,0.4);
+}
+
+.timeline-item:nth-child(odd) i { right: -4.5rem; }
+.timeline-item:nth-child(even) i { left: -4.5rem; }
+
+/* Mobile - force left-aligned timeline */
+@media (max-width: 900px) {
+    .timeline::before {
+        left: 4.5rem;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 2.5rem 2rem 2.5rem 11rem !important;
+        margin-bottom: 7rem;
+    }
+
+    .timeline-item i {
+        left: 1.5rem !important;
+        top: 2rem;
+        transform: none;
+    }
+}
+
+/* Contact - center the button */
+.form-submit-wrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* Skills grid - more responsive on mobile */
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
