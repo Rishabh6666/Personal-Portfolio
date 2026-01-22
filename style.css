@@ -22,6 +22,12 @@ html {
     font-size: 62.5%;
 }
 
+name {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 body {
     background: var(--bg-color);
     color: var(--text-color);
