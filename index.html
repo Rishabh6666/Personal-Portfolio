@@ -63,73 +63,27 @@
     </section>
 
     <!-- Skills -->
-    <section class="skills" id="skills">
-        <h2>My <span>Skills</span></h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <ul>
-                    <li>Python</li>
-                    <li>JavaScript</li>
-                    <li>SQL</li>
-                    <li>Java</li>
-                    <li>C/C++</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Web Technologies</h3>
-                <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Responsive Design</li>
-                    <li>REST APIs</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>PostgreSQL</li>
-                    <li>MongoDB</li>
-                    <li>SQLite</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Data Analysis & Visualization</h3>
-                <ul>
-                    <li>Excel</li>
-                    <li>Pandas</li>
-                    <li>NumPy</li>
-                    <li>Matplotlib</li>
-                    <li>Power BI (basic)</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Machine Learning & AI</h3>
-                <ul>
-                    <li>Scikit-learn</li>
-                    <li>TensorFlow (basic)</li>
-                    <li>Data Preprocessing</li>
-                    <li>Feature Engineering</li>
-                    <li>Sentiment Analysis</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Development Tools & Platforms</h3>
-                <ul>
-                    <li>Git/GitHub</li>
-                    <li>VS Code</li>
-                    <li>PyCharm</li>
-                    <li>IntelliJ</li>
-                    <li>Google Colab</li>
-                    <li>Jupyter Notebook</li>
-                    <li>phpMyAdmin</li>
-                    <li>Adminer</li>
-                </ul>
-            </div>
+    <!-- Skills -->
+<section class="skills" id="skills">
+    <h2>My <span>Skills</span></h2>
+    <div class="skills-buttons">
+        <button class="skill-btn" data-category="programming">Programming Languages</button>
+        <button class="skill-btn" data-category="web">Web Technologies</button>
+        <button class="skill-btn" data-category="databases">Databases</button>
+        <button class="skill-btn" data-category="data-analysis">Data Analysis & Visualization</button>
+        <button class="skill-btn" data-category="ml-ai">Machine Learning & AI</button>
+        <button class="skill-btn" data-category="tools">Development Tools & Platforms</button>
+    </div>
+
+    <!-- Modal / Pop-up -->
+    <div class="skill-modal" id="skillModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <ul id="modalSkillsList"></ul>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Education -->
     <section class="education" id="education">
