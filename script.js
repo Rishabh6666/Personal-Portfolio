@@ -84,18 +84,20 @@ ScrollReveal().reveal('.contact form', { origin: 'bottom' });
 
 // Typed.js
 new Typed('.typed-text', {
-   strings: [
-  'Full-Stack Developer',
-  'AI & ML Enthusiast',
-  'Software Engineer',
-  'Problem Solver'
-],
+  strings: [
+    'Full-Stack Developer',
+    'AI & ML Enthusiast',
+    'Software Engineer',
+    'Problem Solver'
+  ],
 
-    typeSpeed: 80,
-    backSpeed: 40,
-    backDelay: 1200,
-    loop: true
+  typeSpeed: 80,
+  backSpeed: 40,
+  backDelay: 1200,
+  loop: true,
+  contentType: 'null'
 });
+
 
 // Project card tilt effect
 document.querySelectorAll('.project-box').forEach(box => {
