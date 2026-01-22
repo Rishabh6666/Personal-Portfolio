@@ -197,9 +197,9 @@ span {
 
 .home-image img {
     width: 100%;
-    border-radius: 38% 62% 45% 55% / 55% 40% 60% 45%;
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;  /* more irregular shape */
     box-shadow: 0 20px 60px rgba(76, 201, 240, 0.35);
-    
+    /* no transform needed */
 }
 
 /* Scroll Down Arrow */
