@@ -114,6 +114,8 @@ span {
 /* Home */
 .home {
     position: relative;
+    padding-top: 12rem;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -134,23 +136,27 @@ span {
 }
 
 .home-content h1 {
-    font-size: clamp(4.2rem, 8vw, 6rem);
+    font-size: clamp(4.4rem, 9.5vw, 7.2rem);
     line-height: 1.05;
     margin-bottom: 1.2rem;
 }
 
 .home-content h2 {
-    font-size: clamp(2.8rem, 5.5vw, 4rem);
-    margin: 0.8rem 0 2rem;
+    font-size: clamp(3rem, 6.5vw, 4.8rem);
+    margin: 0.8rem 0 2.2rem;
     font-weight: 500;
 }
 
 .tagline {
-    font-size: clamp(1.7rem, 3vw, 2rem);
-    line-height: 1.6;
+    font-size: clamp(1.9rem, 4.2vw, 2.3rem);
+    line-height: 1.65;
     max-width: 620px;
     opacity: 0.92;
     margin-bottom: 3.5rem;
+}
+
+.social-links {
+    margin: 3rem 0 4rem 0;
 }
 
 .social-links a {
@@ -182,6 +188,7 @@ span {
     font-weight: 600;
     display: inline-block;
     transition: 0.4s;
+    margin-top: 1rem;
 }
 
 .btn:hover {
@@ -197,72 +204,68 @@ span {
 
 .home-image img {
     width: 100%;
-    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;  /* more irregular shape */
+    border-radius: 38% 62% 45% 55% / 55% 40% 60% 45%;
     box-shadow: 0 20px 60px rgba(76, 201, 240, 0.35);
-    /* no transform needed */
+    max-height: 65vh;
+    object-fit: contain;
 }
 
-/* Scroll Down Arrow */
-.scroll-down {
+/* Scroll Indicator */
+.scroll-indicator {
     position: absolute;
-    bottom: 4rem;
+    bottom: 5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.6s;
 }
 
-.scroll-down span {
-    display: block;
-    width: 28px;
-    height: 28px;
-    border: 3px solid var(--main-color);
-    border-radius: 50%;
-    position: relative;
-    animation: bounce 2s infinite;
+.scroll-indicator .arrow {
+    width: 30px;
+    height: 30px;
+    border: solid var(--main-color);
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg) translate(-6px, -6px);
+    animation: bounce-down 2.2s infinite;
 }
 
-.scroll-down span::before,
-.scroll-down span::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-right: 3px solid var(--main-color);
-    border-bottom: 3px solid var(--main-color);
-    top: 6px;
-    left: 8px;
-    transform: rotate(45deg);
-}
-
-.scroll-down span::after {
-    left: auto;
-    right: 8px;
-    transform: rotate(-135deg);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-18px); }
-    60% { transform: translateY(-10px); }
+@keyframes bounce-down {
+    0%, 100% { transform: rotate(45deg) translate(-6px, -6px); }
+    50% { transform: rotate(45deg) translate(-6px, 0px); }
 }
 
 /* About */
 .about-container {
     display: flex;
-    gap: 4rem;
+    gap: 6rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
+.about-image {
+    flex: 0 0 300px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 50%;
+    border: 5px solid var(--main-color);
+    box-shadow: 0 0 40px var(--main-color);
+}
+
 .about-content {
     flex: 1 1 45rem;
-    max-width: 800px;
+    max-width: 620px;
 }
 
 .about-content p {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.75;
     margin-bottom: 2.2rem;
 }
@@ -408,6 +411,122 @@ span {
 .education-item p {
     font-size: 1.7rem;
     line-height: 1.6;
+}
+
+/* Experience (similar to Education) */
+.experience {
+    background: var(--second-bg);
+}
+
+.experience-timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 5px;
+    background: var(--main-color);
+    transform: translateX(-50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.experience-item {
+    position: relative;
+    width: 45%;
+    padding: 2.5rem 3rem;
+    background: var(--bg-color);
+    border-radius: 1.5rem;
+    margin-bottom: 5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: all 0.4s;
+    z-index: 2;
+}
+
+.experience-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(76, 201, 240, 0.25);
+}
+
+.experience-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 8%;
+}
+
+.experience-item:nth-child(even) {
+    left: 55%;
+    text-align: left;
+    padding-left: 8%;
+}
+
+.experience-item i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.5rem;
+    color: var(--accent-color);
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 50%;
+    z-index: 3;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
+}
+
+.experience-item:nth-child(odd) i {
+    right: -4rem;
+}
+
+.experience-item:nth-child(even) i {
+    left: -4rem;
+}
+
+.experience-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 4px;
+    background: var(--main-color);
+    transform: translateY(-50%);
+}
+
+.experience-item:nth-child(odd)::after {
+    right: -4rem;
+}
+
+.experience-item:nth-child(even)::after {
+    left: -4rem;
+}
+
+.experience-item h3 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.experience-item p {
+    font-size: 1.7rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.experience-item ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.7;
 }
 
 /* Projects */
@@ -559,18 +678,60 @@ textarea {
         text-align: center;
     }
 
-    
-
-    .scroll-down {
-        bottom: 2.5rem;
+    .home {
+        padding-top: 10rem;
     }
 
-    .education-timeline::before {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .home-content {
+        padding: 0 1.5rem;
+        order: 2;
+    }
+
+    .home-image {
+        flex: none;
+        max-width: 260px;
+        width: 65%;
+        margin: 1rem auto 2.5rem;
+    }
+
+    .home-image img {
+        width: 100%;
+        height: auto;
+        max-height: 42vh;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 15px 45px rgba(76, 201, 240, 0.35);
+        transform: none;
+    }
+
+    .social-links {
+        margin: 2.5rem 0 3.5rem;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 1.4rem 3.8rem;
+        font-size: 1.8rem;
+    }
+
+    .scroll-indicator {
+        bottom: 3.5rem;
+    }
+
+    .education-timeline::before,
+    .experience-timeline::before {
         left: 40px;
         transform: none;
     }
 
-    .education-item {
+    .education-item,
+    .experience-item {
         width: 100%;
         left: 0 !important;
         text-align: left !important;
@@ -578,13 +739,15 @@ textarea {
         margin-bottom: 6rem;
     }
 
-    .education-item i {
+    .education-item i,
+    .experience-item i {
         left: 10px;
         top: 2.5rem;
         transform: none;
     }
 
-    .education-item::after {
+    .education-item::after,
+    .experience-item::after {
         display: none;
     }
 }
@@ -611,113 +774,9 @@ textarea {
 
 @media (max-width: 480px) {
     h2 { font-size: 3.4rem; }
-    .home-content h1 { font-size: 4.2rem; }
-    .btn { padding: 1.2rem 3.2rem; font-size: 1.6rem; }
-    .scroll-down span {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-
-/* Add more top padding to home section so content doesn't stick under fixed header */
-.home {
-    position: relative;
-    padding-top: 12rem;          /* ← this creates space below fixed header */
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .home {
-        padding-top: 10rem;      /* slightly less on mobile */
-    }
-}
-
-/* ────────────── Better spacing for social + button ────────────── */
-.social-links {
-    margin: 3rem 0 4rem 0;       /* more space below social icons */
-}
-
-.btn {
-    margin-top: 1rem;            /* extra breathing room if needed */
-}
-
-/* ────────────── Clean downward arrow (replaces old scroll-down) ────────────── */
-.scroll-indicator {
-    position: absolute;
-    bottom: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    opacity: 0.7;
-    transition: opacity 0.6s;
-}
-
-.scroll-indicator .arrow {
-    width: 30px;
-    height: 30px;
-    border: solid var(--main-color);
-    border-width: 0 4px 4px 0;
-    display: inline-block;
-    padding: 6px;
-    transform: rotate(45deg) translate(-6px, -6px);
-    animation: bounce-down 2.2s infinite;
-}
-
-@keyframes bounce-down {
-    0%, 100%   { transform: rotate(45deg) translate(-6px, -6px); }
-    50%        { transform: rotate(45deg) translate(-6px, 0px); }
-}
-
-@media (max-width: 768px) {
-    .scroll-indicator {
-        bottom: 3.5rem;
-    }
-    .scroll-indicator .arrow {
-        width: 26px;
-        height: 26px;
-        border-width: 0 3px 3px 0;
-        padding: 5px;
-    }
-}
-@media (max-width: 900px) {
-    .home-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 3.5rem;           /* reduced gap so things feel tighter */
-    }
-
-    .home-image {
-        flex: 0 0 auto;        /* stop forcing fixed basis */
-        max-width: 280px;      /* ← smaller on mobile – adjust between 240–300px */
-        width: 70%;            /* relative to screen width – feels balanced */
-        margin: 0 auto;        /* center it */
-        order: -1;             /* keep image on top */
-    }
-
-    .home-image img {
-        width: 100%;
-        height: auto;
-        border-radius: 50%;          /* circle looks better for portraits on mobile */
-        object-fit: cover;           /* prevent distortion if cropped */
-        aspect-ratio: 1 / 1;         /* force square crop – optional but clean */
-        box-shadow: 0 15px 40px rgba(76, 201, 240, 0.3);
-        transform: none;             /* no rotation on mobile */
-    }
-
-    .home-content {
-        padding: 0 1rem;             /* small side padding on very small screens */
-    }
-
-    .tagline {
-        font-size: 1.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .home-image {
-        max-width: 240px;
-        width: 65%;
-    }
+    .home-content h1 { font-size: clamp(3.8rem, 10vw, 5.2rem); }
+    .home-content h2 { font-size: clamp(2.6rem, 7vw, 3.8rem); }
+    .tagline { font-size: 1.9rem; }
+    .home-image { max-width: 220px; width: 60%; }
+    .scroll-indicator .arrow { width: 26px; height: 26px; border-width: 0 3px 3px 0; padding: 5px; }
 }
