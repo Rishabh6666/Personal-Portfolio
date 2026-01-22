@@ -1,40 +1,61 @@
-// Menu Toggle + body scroll lock
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.getElementById('navbar');
-const navClose = document.getElementById('navClose');
+// Menu Toggle
+const menuToggle = document.querySelector('#menu-toggle');
+const navbar = document.querySelector('.navbar');
+menuToggle.addEventListener('click', () => {
+    menuToggle.querySelector('i').classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+});
 
-if (menuToggle && navbar) {
-    const openMenu = () => {
-        navbar.classList.add('active');
-        document.body.classList.add('menu-open');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('bx-menu');
-        icon.classList.add('bx-x');
-    };
-
-    const closeMenu = () => {
+// Close menu on link click
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.querySelector('i').classList.remove('bx-x');
         navbar.classList.remove('active');
-        document.body.classList.remove('menu-open');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('bx-x');
-        icon.classList.add('bx-menu');
-    };
-
-    menuToggle.addEventListener('click', openMenu);
-    navClose.addEventListener('click', closeMenu);
-
-    // Close on link click
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', closeMenu);
     });
+});
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
-            closeMenu();
+// Active Navigation & Sticky Header + Back to Top + Scroll Arrow Fade
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
+        if (top >= offset && top < offset + height) {
+            current = id;
         }
     });
-}
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+
+    document.querySelector('.header').classList.toggle('sticky', window.scrollY > 100);
+
+    // Auto-close mobile menu
+    menuToggle.querySelector('i').classList.remove('bx-x');
+    navbar.classList.remove('active');
+
+    // Back to top
+    document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
+
+    // Fade scroll indicator when user has scrolled past home
+    const indicator = document.querySelector('.scroll-indicator');
+    if (indicator) {
+        if (window.scrollY > window.innerHeight * 0.6) {
+            indicator.style.opacity = '0';
+        } else {
+            indicator.style.opacity = '0.7';
+        }
+    }
+});
 
 // Scroll & Active Link
 const sections = document.querySelectorAll('section');
