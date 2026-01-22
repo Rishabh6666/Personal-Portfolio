@@ -71,14 +71,14 @@ document.querySelectorAll('.navbar a, .back-to-top').forEach(link => {
 // Scroll Reveal
 ScrollReveal({
     distance: '80px',
-    duration: 2000,
+    duration: 2000;
     delay: 200
 });
 
 ScrollReveal().reveal('.home-content', { origin: 'left', interval: 200 });
 ScrollReveal().reveal('.home-image', { origin: 'right' });
 ScrollReveal().reveal('.about-content, .skills-grid .skill-category', { origin: 'bottom', interval: 200 });
-ScrollReveal().reveal('.about-image, .education-item', { origin: 'top', interval: 200 });
+ScrollReveal().reveal('.about-image, .education-item, .experience-item', { origin: 'top', interval: 200 });
 ScrollReveal().reveal('.projects-grid .project-box', { scale: 0.9, interval: 200 });
 ScrollReveal().reveal('.contact form', { origin: 'bottom' });
 
