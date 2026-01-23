@@ -831,7 +831,7 @@ textarea {
     .scroll-indicator {
         position: relative;
         bottom: auto;
-        left: auto;
+        left: 50%;
         transform: none;
         margin-top: 2rem;
     }
