@@ -751,19 +751,20 @@ textarea {
 @media (max-width: 768px) {
     .scroll-indicator {
         position: fixed;
-        bottom: 0.5rem; /* very bottom */
+        bottom: env(safe-area-inset-bottom, 0px);
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
     }
 
     .scroll-indicator .arrow {
-        width: 20px;
-        height: 20px;   /* same ratio */
+        width: 18px;
+        height: 18px;
         border-width: 0 2px 2px 0;
         padding: 3px;
     }
 }
+
 
 @media (max-width: 900px) {
     .home-container {
