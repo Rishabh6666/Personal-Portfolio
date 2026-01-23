@@ -729,11 +729,11 @@ textarea {
 
 /* ────────────── Better spacing for social + button ────────────── */
 .social-links {
-    margin: 3rem 0 4rem 0;       /* more space below social icons */
+    margin: 2.5rem 0 3rem 0;       /* more space below social icons */
 }
 
 .btn {
-    margin-top: 1rem;            /* extra breathing room if needed */
+    margin-top: 0.6rem;            /* extra breathing room if needed */
 }
 
 /* ────────────── Clean downward arrow (replaces old scroll-down) ────────────── */
