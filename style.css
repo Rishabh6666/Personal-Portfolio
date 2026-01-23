@@ -222,8 +222,8 @@ h2 {
 }
 
 .scroll-indicator .arrow {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border: solid var(--main-color);
     border-width: 0 4px 4px 0;
     display: inline-block;
