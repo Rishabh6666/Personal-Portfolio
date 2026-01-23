@@ -769,13 +769,13 @@ textarea {
 
 @media (max-width: 768px) {
     .scroll-indicator {
-        bottom: 2.5rem;
+        bottom: 1rem;
     }
     .scroll-indicator .arrow {
-        width: 22px;
-        height: 15px;
+        width: 26px;
+        height: 12px;
         border-width: 0 3px 3px 0;
-        padding: 3px;
+        padding: 5px;
     }
 }
 @media (max-width: 900px) {
