@@ -831,7 +831,7 @@ textarea {
 @media (max-width: 768px) {
     .scroll-indicator {
         position: fixed;     /* attach to screen */
-        bottom: 1rem;        /* always visible */
+        bottom: 0.2rem;        /* always visible */
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
