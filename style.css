@@ -826,3 +826,11 @@ textarea {
 }
 
 
+/* Fix scroll arrow on mobile */
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 2rem;   /* Move it lower */
+        position: relative; /* Let it flow normally */
+        margin-top: 2rem;
+    }
+}
