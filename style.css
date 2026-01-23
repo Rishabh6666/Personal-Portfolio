@@ -703,8 +703,8 @@ textarea {
 }
 
 @media (max-width: 480px) {
-    h2 { font-size: 3.4rem; }
-    .home-content h1 { font-size: 4.2rem; }
+    h2 { font-size: 2.5rem; }
+    .home-content h1 { font-size: 3.2rem; }
     .btn { padding: 1.2rem 3.2rem; font-size: 1.6rem; }
     .scroll-down span {
         width: 24px;
