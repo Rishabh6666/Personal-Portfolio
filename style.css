@@ -783,7 +783,7 @@ textarea {
 
     .home-image {
         flex: 0 0 auto;        /* stop forcing fixed basis */
-        max-width: 280px;      /* ← smaller on mobile – adjust between 240–300px */
+        max-width: 250px;      /* ← smaller on mobile – adjust between 240–300px */
         width: 70%;            /* relative to screen width – feels balanced */
         margin: 0 auto;        /* center it */
         order: -1;             /* keep image on top */
