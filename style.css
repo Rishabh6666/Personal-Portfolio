@@ -641,26 +641,6 @@ h2 {
     box-shadow: 0 0 15px rgba(155,93,229,0.6);
 }
 
-/* ================= Mobile Support ================= */
-
-@media (max-width: 768px) {
-    /* Show overlay by default on mobile */
-    .project-overlay {
-        transform: translateY(0);
-        opacity: 1;
-
-        background: linear-gradient(
-            to top,
-            rgba(8,12,18,0.9),
-            rgba(8,12,18,0.6)
-        );
-    }
-
-    .project-image img {
-        filter: brightness(0.75);
-    }
-}
-
 /* Contact */
 .contact form {
     max-width: 800px;
