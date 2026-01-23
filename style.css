@@ -826,13 +826,15 @@ textarea {
 }
 
 
-/* Fix scroll arrow on mobile */
+/* Keep scroll arrow visible on mobile */
 @media (max-width: 768px) {
     .scroll-indicator {
-        position: relative;
-        bottom: auto;
+        position: fixed;     /* attach to screen */
+        bottom: 2rem;        /* always visible */
         left: 50%;
-        transform: none;
-        margin-top: 2rem;
+        transform: translateX(-50%);
+        z-index: 999;
+        pointer-events: none; /* optional: no accidental taps */
     }
 }
+
