@@ -145,6 +145,7 @@ h2 {
 .home-content h2 {
     font-size: clamp(2.8rem, 5.5vw, 4rem);
     margin: 0.8rem 0 2rem;
+    text-align: left;
 }
 
 .tagline {
