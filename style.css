@@ -783,8 +783,8 @@ textarea {
 
     .home-image {
         flex: 0 0 auto;        /* stop forcing fixed basis */
-        max-width: 250px;      /* ← smaller on mobile – adjust between 240–300px */
-        width: 70%;            /* relative to screen width – feels balanced */
+        max-width: 220px;      /* ← smaller on mobile – adjust between 240–300px */
+        width: 55%;            /* relative to screen width – feels balanced */
         margin: 0 auto;        /* center it */
         order: -1;             /* keep image on top */
     }
@@ -804,14 +804,15 @@ textarea {
     }
 
     .tagline {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 480px) {
     .home-image {
-        max-width: 240px;
-        width: 65%;
+        max-width: 220px;
+        width: 55%;
+    
     }
 }
 
