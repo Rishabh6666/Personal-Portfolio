@@ -211,7 +211,7 @@ h2 {
 
 /* Scroll Indicator */
 .scroll-indicator {
-    position: absolute;
+     position: absolute;
     bottom: 5rem;
     left: 50%;
     transform: translateX(-50%);
@@ -829,8 +829,10 @@ textarea {
 /* Fix scroll arrow on mobile */
 @media (max-width: 768px) {
     .scroll-indicator {
-        bottom: 2rem;   /* Move it lower */
-        position: relative; /* Let it flow normally */
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
         margin-top: 2rem;
     }
 }
