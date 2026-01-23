@@ -711,6 +711,9 @@ textarea {
         width: 24px;
         height: 24px;
     }
+    .home-content h2 {
+    text-align: center;
+}
 }
 
 
@@ -815,10 +818,6 @@ textarea {
         width: 55%;
     
     }
-}
-
-.home-content h2 {
-    text-align: left;
 }
 
 .typed-container {
