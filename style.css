@@ -751,7 +751,7 @@ textarea {
 }
 
 /* Footer */
-.contact .footer {
+.footer {
     padding: 3rem 10%;
     background: var(--second-bg);
     text-align: center;
