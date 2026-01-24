@@ -322,6 +322,14 @@ h2 {
   }
 }
 
+
+@media (min-width: 769px) {
+  .reveal-text {
+    text-align: justify;
+    hyphens: auto;               /* helps reduce bad spacing a little */
+  }
+}
+
 /* Skills */
 .skills {
     background: var(--second-bg);
