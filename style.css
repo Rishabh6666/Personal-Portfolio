@@ -279,6 +279,21 @@ h2 {
 .reveal-text:nth-child(2) { background: linear-gradient(to right, #fbcfe8, #f9a8d4); -webkit-background-clip: text; background-clip: text; }
 .reveal-text:nth-child(3) { background: linear-gradient(to right, #a7f3d0, #6ee7b7); -webkit-background-clip: text; background-clip: text; }
 
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover subtle lift + glow */
+.reveal-text:hover {
+  transform: translateY(-4px);
+  transition: all 0.35s ease;
+  filter: brightness(1.15);
+}
+
+
 /* Mobile — keep it perfect as you said */
 @media (max-width: 768px) {
   .about-title {
