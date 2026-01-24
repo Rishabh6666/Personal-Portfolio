@@ -262,10 +262,22 @@ h2 {
 }
 
 .reveal-text {
-  font-size: 1.68rem;        /* was 1.55rem → noticeably larger on desktop */
-  line-height: 1.88;         /* slightly taller lines = easier reading */
-  /* keep your gradient / animation / color styles */
+  font-size: 1.68rem;
+  line-height: 1.88;
+  color: #e5e7eb;           /* light for dark mode, or #374151 for light */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 1.1s forwards ease-out;
+  background: linear-gradient(to right, #9ca3af, #d1d5db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;       /* optional subtle gradient text */
 }
+
+/* Optional stronger gradient per paragraph */
+.reveal-text:nth-child(1) { background: linear-gradient(to right, #a5b4fc, #c4b5fd); -webkit-background-clip: text; background-clip: text; }
+.reveal-text:nth-child(2) { background: linear-gradient(to right, #fbcfe8, #f9a8d4); -webkit-background-clip: text; background-clip: text; }
+.reveal-text:nth-child(3) { background: linear-gradient(to right, #a7f3d0, #6ee7b7); -webkit-background-clip: text; background-clip: text; }
 
 /* Mobile — keep it perfect as you said */
 @media (max-width: 768px) {
