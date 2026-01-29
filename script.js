@@ -177,35 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.menu-toggle');
-  const navbar = document.querySelector('.navbar');
 
-  toggle?.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    navbar.classList.toggle('active');
-    
-    // Optional: prevent body scroll when menu is open
-    document.body.style.overflow = navbar.classList.contains('active') 
-      ? 'hidden' 
-      : '';
-  });
-
-  // Optional: close menu when clicking a link
-  navbar?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      navbar.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Optional: close when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!navbar?.contains(e.target) && !toggle?.contains(e.target)) {
-      toggle?.classList.remove('active');
-      navbar?.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-});
