@@ -826,7 +826,11 @@ textarea {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle { display: block; }
+    .menu-toggle { 
+        display: block; 
+        cursor: pointer;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -835,14 +839,59 @@ textarea {
         flex-direction: column;
         background: var(--second-bg);
         padding: 2rem;
-        display: none;
+        
+        /* changed from display: none */
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        pointer-events: none;
+        
+        transition: 
+            opacity 0.28s ease,
+            transform 0.4s ease,
+            visibility 0.4s ease;
     }
-    .navbar.active { display: flex; }
-    .navbar a { margin: 2rem 0; text-align: center; font-size: 2rem; }
 
-    .form-group { flex-direction: column; gap: 2rem; }
+    .navbar.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+        display: flex;           /* still using flex when active */
+    }
 
-    section { padding: 8rem 5% 5rem; }
+    .navbar a {
+        margin: 2rem 0;
+        text-align: center;
+        font-size: 2rem;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.38s ease;
+    }
+
+    .navbar.active a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* optional small stagger effect */
+    .navbar.active a:nth-child(1) { transition-delay: 0.05s; }
+    .navbar.active a:nth-child(2) { transition-delay: 0.10s; }
+    .navbar.active a:nth-child(3) { transition-delay: 0.15s; }
+    .navbar.active a:nth-child(4) { transition-delay: 0.20s; }
+
+    .navbar a:hover {
+        color: var(--main-color);    /* if you have this variable */
+    }
+
+    .form-group { 
+        flex-direction: column; 
+        gap: 2rem; 
+    }
+
+    section { 
+        padding: 8rem 5% 5rem; 
+    }
 }
 
 @media (max-width: 480px) {
