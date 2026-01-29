@@ -1,15 +1,9 @@
 // Menu Toggle
-// Very simple – add this to your main JS file
-document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.menu-toggle');
-    const navbar = document.querySelector('.navbar');
-
-    if (toggle && navbar) {
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            navbar.classList.toggle('active');
-        });
-    }
+const menuToggle = document.querySelector('#menu-toggle');
+const navbar = document.querySelector('.navbar');
+menuToggle.addEventListener('click', () => {
+    menuToggle.querySelector('i').classList.toggle('bx-x');
+    navbar.classList.toggle('active');
 });
 
 // Close menu on link click
