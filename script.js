@@ -1,16 +1,17 @@
-// Menu Toggle
 const menuToggle = document.querySelector('#menu-toggle');
 const navbar = document.querySelector('.navbar');
+const menuIcon = menuToggle.querySelector('i');
+
 menuToggle.addEventListener('click', () => {
-    menuToggle.querySelector('i').classList.toggle('bx-x');
+    menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 });
 
-// Close menu on link click
+// Close menu when clicking a link
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('click', () => {
-        menuToggle.querySelector('i').classList.remove('bx-x');
         navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
     });
 });
 
