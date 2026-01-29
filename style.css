@@ -826,24 +826,62 @@ textarea {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle { display: block; }
+
+    .menu-toggle {
+        display: block;
+        font-size: 2.8rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        flex-direction: column;
         background: var(--second-bg);
-        padding: 2rem;
-        display: none;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+
+        padding: 2.5rem 0;
+
+        /* smooth animation */
+        opacity: 0;
+        transform: translateY(-15px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 1000;
     }
-    .navbar.active { display: flex; }
-    .navbar a { margin: 2rem 0; text-align: center; font-size: 2rem; }
 
-    .form-group { flex-direction: column; gap: 2rem; }
+    .navbar.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 
-    section { padding: 8rem 5% 5rem; }
+    .navbar a {
+        font-size: 2rem;
+        text-align: center;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+        transform: translateY(-2px);
+    }
+
+    .form-group {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    section {
+        padding: 8rem 5% 5rem;
+    }
 }
+
 
 @media (max-width: 480px) {
     h2 { font-size: 2.5rem; }
