@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Rishabh Barhate — Freelance Web Developer. I build fast, modern, and conversion-focused websites for businesses and startups." />
+    <title>Rishabh Barhate | Freelance Web Developer</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="no-cursor">
+
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="#home" class="logo">Rishabh<span>.dev</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#work">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact" class="nav-cta">Hire Me</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle"><i class='bx bx-menu'></i></div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-badge"><i class='bx bx-check-circle'></i> Available for new projects</span>
+            <h1>I Build Websites That <span class="highlight">Win Clients</span> For Your Business</h1>
+            <p>Freelance web developer specializing in fast, modern, and conversion-focused websites. From landing pages
+                to full web apps — I turn your vision into a product that works.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Start a Project <i class='bx bx-right-arrow-alt'></i></a>
+                <a href="#work" class="btn btn-ghost">See Projects</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span>1+</span>
+                    <p>Year Building</p>
+                </div>
+                <div class="stat"><span>5+</span>
+                    <p>Projects Built</p>
+                </div>
+                <div class="stat"><span>100%</span>
+                    <p>On-Time Delivery</p>
+                </div>
+            </div>
+        </div>
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-visual">
+            <div class="hero-img-wrap" id="heroImgWrap">
+                <img src="myproject/image/me.jpeg" alt="Rishabh Barhate — Web Developer" />
+            </div>
+            <div class="floating-card card-1"><i class='bx bx-code-alt'></i> Clean Code</div>
+            <div class="floating-card card-2"><i class='bx bx-mobile-alt'></i> Works on All Devices</div>
+            <div class="floating-card card-3"><i class='bx bx-rocket'></i> Fast Delivery</div>
+        </div>
+    </section>
+
+    <!-- Marquee Strip -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>HTML5</span><span>·</span><span>CSS3</span><span>·</span><span>JavaScript</span><span>·</span><span>TypeScript</span><span>·</span><span>React</span><span>·</span><span>Python</span><span>·</span><span>Django</span><span>·</span><span>Flask</span><span>·</span><span>MySQL</span><span>·</span><span>MongoDB</span><span>·</span><span>REST
+                APIs</span><span>·</span><span>Git</span><span>·</span><span>PHP</span><span>·</span><span>Java</span><span>·</span><span>Tailwind
+                CSS</span><span>·</span><span>Node.js</span><span>·</span>
+            <span>HTML5</span><span>·</span><span>CSS3</span><span>·</span><span>JavaScript</span><span>·</span><span>TypeScript</span><span>·</span><span>React</span><span>·</span><span>Python</span><span>·</span><span>Django</span><span>·</span><span>Flask</span><span>·</span><span>MySQL</span><span>·</span><span>MongoDB</span><span>·</span><span>REST
+                APIs</span><span>·</span><span>Git</span><span>·</span><span>PHP</span><span>·</span><span>Java</span><span>·</span><span>Tailwind
+                CSS</span><span>·</span><span>Node.js</span><span>·</span>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-tag">What I Offer</span>
+            <h2>Services Built to <span>Grow Your Business</span></h2>
+            <p>Every service is designed with one goal: results for you and your customers.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card featured">
+                <div class="service-icon"><i class='bx bx-laptop'></i></div>
+                <h3>Full-Stack Web Development</h3>
+                <p>End-to-end web applications built with modern frameworks. Scalable, secure, and built to perform
+                    under real traffic.</p>
+                <ul>
+                    <li>Custom web apps (Django, Flask, Node)</li>
+                    <li>REST API design & integration</li>
+                    <li>Database architecture (MySQL, MongoDB)</li>
+                    <li>Authentication & user management</li>
+                </ul>
+                <span class="service-tag">Most Popular</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class='bx bx-paint'></i></div>
+                <h3>Landing Pages & Business Sites</h3>
+                <p>High-converting landing pages and business websites that look great and turn visitors into leads.</p>
+                <ul>
+                    <li>Pixel-perfect responsive design</li>
+                    <li>SEO-ready HTML structure</li>
+                    <li>Fast load times (&lt;2s)</li>
+                    <li>Contact forms & integrations</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class='bx bx-mobile-alt'></i></div>
+                <h3>Responsive UI / UX</h3>
+                <p>Interfaces that feel great on every device. I translate designs into clean, interactive front-end
+                    code.</p>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>Smooth animations & transitions</li>
+                    <li>Cross-browser compatibility</li>
+                    <li>Accessibility (WCAG basics)</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class='bx bx-brain'></i></div>
+                <h3>AI-Powered Features</h3>
+                <p>Add intelligent features to your product — from data dashboards to ML-backed recommendations.</p>
+                <ul>
+                    <li>Sentiment analysis integration</li>
+                    <li>Data visualization dashboards</li>
+                    <li>Python ML model deployment</li>
+                    <li>Automated reporting tools</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="work" id="work">
+        <div class="section-header">
+            <span class="section-tag">Portfolio</span>
+            <h2>Recent <span>Projects</span></h2>
+            <p>A selection of work that demonstrates what I can build for you.</p>
+        </div>
+        <div class="work-grid">
+            <div class="work-card large">
+                <div class="work-img">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
+                        alt="WealthWise" />
+                    <div class="work-overlay">
+                        <span class="work-tag">AI · Python · Web App</span>
+                        <h3>WealthWise</h3>
+                        <p>AI-powered stock analyst with real-time market data, sentiment analysis from news, and
+                            interactive charts. Published in IEEE ICETEG 2025.</p>
+                        <div class="work-links">
+                            <a href="https://github.com/Rishabh6666/WealthWise" target="_blank" class="btn btn-sm"><i
+                                    class='bx bxl-github'></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-img">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
+                        alt="Doctor Appointment" />
+                    <div class="work-overlay">
+                        <span class="work-tag">PHP · MySQL · Full-Stack</span>
+                        <h3>Doctor Appointment System</h3>
+                        <p>Full-stack PHP web app for booking and managing doctor-patient appointments with admin
+                            dashboard.</p>
+                        <div class="work-links">
+                            <a href="https://github.com/Rishabh6666/Doctor-Patient-Appointment-System" target="_blank"
+                                class="btn btn-sm"><i class='bx bxl-github'></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-img">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
+                        alt="College Management" />
+                    <div class="work-overlay">
+                        <span class="work-tag">Django · Python · Web App</span>
+                        <h3>College Management System</h3>
+                        <p>Django-based web application for managing college records, students, and faculty with
+                            role-based access.</p>
+                        <div class="work-links">
+                            <a href="https://github.com/Rishabh6666/College-Management-System" target="_blank"
+                                class="btn btn-sm"><i class='bx bxl-github'></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-img">
+                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80"
+                        alt="Pharmacy Management" />
+                    <div class="work-overlay">
+                        <span class="work-tag">Java · MySQL · Desktop App</span>
+                        <h3>Pharmacy Management System</h3>
+                        <p>Java-MySQL desktop application for inventory tracking, billing, and records management for
+                            pharmacies.</p>
+                        <div class="work-links">
+                            <a href="https://github.com/Rishabh6666/Pharmacy-Management-System" target="_blank"
+                                class="btn btn-sm"><i class='bx bxl-github'></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <span class="section-tag">How I Work</span>
+            <h2>From Idea to <span>Live Product</span></h2>
+            <p>A clear, collaborative process so you always know what's happening.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <div class="step-icon"><i class='bx bx-conversation'></i></div>
+                <h3>Discovery</h3>
+                <p>We talk about your goals, audience, and what success looks like. I ask the right questions so nothing
+                    gets built twice.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <div class="step-icon"><i class='bx bx-pencil'></i></div>
+                <h3>Plan & Design</h3>
+                <p>I map out the structure, pages, and user flow. You get a clear picture before a single line of code
+                    is written.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <div class="step-icon"><i class='bx bx-code-block'></i></div>
+                <h3>Build</h3>
+                <p>Clean, fast, and well-structured code. I keep you updated at every milestone so there are no
+                    surprises.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <div class="step-icon"><i class='bx bx-rocket'></i></div>
+                <h3>Launch & Support</h3>
+                <p>I handle deployment, testing, and handover. Post-launch support included so you're never left
+                    stranded.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="stack" id="stack">
+        <div class="section-header">
+            <span class="section-tag">Tech Stack</span>
+            <h2>Tools I Build <span>With</span></h2>
+        </div>
+        <div class="stack-pills">
+            <!-- Frontend -->
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />HTML5</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />CSS3</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />JavaScript
+            </div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />TypeScript
+            </div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />React</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" />Tailwind
+                CSS</div>
+            <!-- Backend -->
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />Python</div>
+            <div class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                    style="filter:invert(1)" />Django</div>
+            <div class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                    style="filter:invert(1)" />Flask</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />Node.js</div>
+            <div class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" />PHP
+            </div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />Java</div>
+            <!-- Databases -->
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />MySQL</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />PostgreSQL
+            </div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />MongoDB
+            </div>
+            <!-- Tools -->
+            <div class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />Git
+            </div>
+            <div class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                    style="filter:invert(1)" />GitHub</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />VS Code</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />Figma</div>
+            <div class="pill"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" />Postman
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-img-wrap">
+            <div class="about-img about-img-card about-slideshow">
+                <img src="myproject/image/me.jpeg" alt="Rishabh Barhate" class="slide s1" />
+                <img src="myproject/image/me2.jpeg" alt="Rishabh Barhate" class="slide s2" />
+                <img src="myproject/image/me3.jpeg" alt="Rishabh Barhate" class="slide s3" />
+                <img src="myproject/image/me4.jpeg" alt="Rishabh Barhate" class="slide s4" />
+                <div class="slide-dots">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </div>
+            </div>
+            <div class="about-img-ring"></div>
+        </div>
+        <div class="about-content">
+            <span class="section-tag">About Me</span>
+            <h2>A Developer Who Cares About <span>Your Results</span></h2>
+            <p>I'm Rishabh Barhate — a full-stack web developer and Electronics & Computer Science graduate from Mumbai.
+                I've spent the last year building real-world web applications, working with companies like Graphene
+                Industries and Hexaphase Technologies.</p>
+            <p>I don't just write code — I build products that solve real problems. Whether you need a business website,
+                a web app, or an AI-powered tool, I bring both technical depth and a product mindset to every project.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-item"><i class='bx bx-check'></i> B.E. Electronics & Computer Science — CGPA 8.62
+                </div>
+                <div class="highlight-item"><i class='bx bx-check'></i> 2× IEEE Published Researcher (ICCCNT & ICETEG
+                    2025)</div>
+                <div class="highlight-item"><i class='bx bx-check'></i> Smart India Hackathon — Zonal Finalist</div>
+                <div class="highlight-item"><i class='bx bx-check'></i> Experience at 3 tech companies</div>
+            </div>
+            <div class="about-actions">
+                <a href="#contact" class="btn btn-primary">Work With Me</a>
+                <a href="Rishabh Barhate_CV.pdf" class="btn btn-ghost" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <span class="section-tag">Experience</span>
+            <h2>Where I've <span>Worked</span></h2>
+        </div>
+        <div class="exp-list">
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-body">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Technical Developer</h3>
+                            <span class="exp-company">Graphene Industries Pvt. Ltd.</span>
+                        </div>
+                        <span class="exp-date">Oct – Dec 2025</span>
+                    </div>
+                    <ul>
+                        <li>Developed features for the CAREKIT healthcare platform</li>
+                        <li>Built intuitive UI components for early product milestones</li>
+                        <li>Collaborated cross-functionally to resolve technical and UX challenges</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-body">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Web Developer</h3>
+                            <span class="exp-company">Hexaphase Technologies LLP</span>
+                        </div>
+                        <span class="exp-date">Jul – Sep 2025</span>
+                    </div>
+                    <ul>
+                        <li>Contributed to end-to-end web development using modern best practices</li>
+                        <li>Built responsive, interactive interfaces to enhance user experience</li>
+                        <li>Optimized performance and ensured cross-browser compatibility</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-body">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Software Developer Intern</h3>
+                            <span class="exp-company">Prodigy Infotech</span>
+                        </div>
+                        <span class="exp-date">Sep – Oct 2024</span>
+                    </div>
+                    <ul>
+                        <li>Built full-stack projects using HTML, CSS, JavaScript, and Python</li>
+                        <li>Gained hands-on experience with real-world SDLC processes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-left">
+            <span class="section-tag">Let's Talk</span>
+            <h2>Ready to Build <span>Something Great?</span></h2>
+            <p>Have a project in mind? I'd love to hear about it. Drop me a message and I'll get back to you within 24
+                hours with a clear plan and quote.</p>
+            <div class="contact-channels">
+                <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Rishabh%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project"
+                    target="_blank" class="channel-card whatsapp">
+                    <div class="channel-icon"><i class='bx bxl-whatsapp'></i></div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span>Quickest response</span>
+                    </div>
+                    <i class='bx bx-right-arrow-alt channel-arrow'></i>
+                </a>
+                <a href="mailto:rishabhedu6@gmail.com" class="channel-card email">
+                    <div class="channel-icon"><i class='bx bxs-envelope'></i></div>
+                    <div>
+                        <strong>Email</strong>
+                        <span>rishabhedu6@gmail.com</span>
+                    </div>
+                    <i class='bx bx-right-arrow-alt channel-arrow'></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rishabh-barhate-1a6602218/" target="_blank"
+                    class="channel-card linkedin">
+                    <div class="channel-icon"><i class='bx bxl-linkedin'></i></div>
+                    <div>
+                        <strong>LinkedIn</strong>
+                        <span>Connect professionally</span>
+                    </div>
+                    <i class='bx bx-right-arrow-alt channel-arrow'></i>
+                </a>
+            </div>
+            <p class="response-note"><i class='bx bx-time-five'></i> Typical response time: under 2 hours on WhatsApp
+            </p>
+        </div>
+        <div class="contact-right">
+            <div class="form-header">
+                <h3>Send a Message</h3>
+                <p>Fill in the details and I'll come back with a tailored proposal.</p>
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                <input type="hidden" name="access_key" value="fec13f21-117d-45b4-b6d8-3e6042d11c36" />
+                <div class="form-row">
+                    <div class="input-wrap">
+                        <i class='bx bx-user'></i>
+                        <input type="text" name="name" placeholder="Your Name" required />
+                    </div>
+                    <div class="input-wrap">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" name="email" placeholder="Your Email" required />
+                    </div>
+                </div>
+                <div class="input-wrap">
+                    <i class='bx bx-briefcase'></i>
+                    <input type="text" name="subject" placeholder="Project Type (e.g. Business Website, Web App)"
+                        required />
+                </div>
+                <div class="input-wrap textarea-wrap">
+                    <i class='bx bx-message-detail'></i>
+                    <textarea name="message" placeholder="Describe your project — goals, timeline, budget..." rows="5"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Send Message <i class='bx bx-send'></i></button>
+            </form>
+            <p id="form-message"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#home" class="logo">Rishabh<span>.dev</span></a>
+            <p>© 2025 Rishabh Barhate. Built with care. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/Rishabh6666" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/rishabh-barhate-1a6602218/" target="_blank"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="mailto:rishabhedu6@gmail.com"><i class='bx bxs-envelope'></i></a>
+                <a href="https://www.instagram.com/_rishabh.6" target="_blank"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop"><i class='bx bx-up-arrow-alt'></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
