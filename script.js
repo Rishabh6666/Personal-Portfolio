@@ -1,181 +1,200 @@
-const menuToggle = document.querySelector('#menu-toggle');
+/* ── Mobile menu with overlay ── */
+const menuToggle = document.getElementById('menu-toggle');
 const navbar = document.querySelector('.navbar');
 const menuIcon = menuToggle.querySelector('i');
 
-menuToggle.addEventListener('click', () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-});
+// Inject overlay element
+const overlay = document.createElement('div');
+overlay.className = 'nav-overlay';
+document.body.appendChild(overlay);
 
-// Close menu when clicking a link
+function openNav() {
+    navbar.classList.add('active');
+    overlay.classList.add('active');
+    menuIcon.classList.replace('bx-menu', 'bx-x');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+    navbar.classList.remove('active');
+    overlay.classList.remove('active');
+    menuIcon.classList.replace('bx-x', 'bx-menu');
+    document.body.style.overflow = '';
+}
+
+menuToggle.addEventListener('click', () => navbar.classList.contains('active') ? closeNav() : openNav());
+overlay.addEventListener('click', closeNav);
+
 document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-    });
+    link.addEventListener('click', closeNav);
 });
 
-// Active Navigation & Sticky Header + Back to Top + Scroll Arrow Fade
-const sections = document.querySelectorAll('section');
+/* ── Sticky header + active nav + back to top ── */
+const header = document.getElementById('header');
+const backToTop = document.getElementById('backToTop');
+const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar a');
 
 window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 50);
+    backToTop.classList.toggle('visible', y > 400);
     let current = '';
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 150;
-        const height = sec.offsetHeight;
-        const id = sec.getAttribute('id');
-        if (top >= offset && top < offset + height) {
-            current = id;
-        }
-    });
-
+    sections.forEach(sec => { if (y >= sec.offsetTop - 200) current = sec.getAttribute('id'); });
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
     });
+});
 
-    document.querySelector('.header').classList.toggle('sticky', window.scrollY > 100);
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
 
-    // Auto-close mobile menu
-    menuToggle.querySelector('i').classList.remove('bx-x');
-    navbar.classList.remove('active');
+/* ── Custom cursor ── */
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
-    // Back to top
-    document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
+if (!isTouchDevice && dot && ring) {
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-    // Fade scroll indicator when user has scrolled past home
-    const indicator = document.querySelector('.scroll-indicator');
-    if (indicator) {
-        if (window.scrollY > window.innerHeight * 0.6) {
-            indicator.style.opacity = '0';
-        } else {
-            indicator.style.opacity = '0.7';
-        }
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+    (function animateCursor() {
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        dot.style.left = mx + 'px';
+        dot.style.top = my + 'px';
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(animateCursor);
+    })();
+
+    document.querySelectorAll('a, button, .service-card, .work-card, .process-step').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+    });
+}
+
+/* ── Hero canvas particle network ── */
+const canvas = document.getElementById('heroCanvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    const COUNT = 55;
+
+    function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
     }
-});
+    resize();
+    window.addEventListener('resize', resize);
 
-// Smooth Scrolling
-document.querySelectorAll('.navbar a, .back-to-top').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// Scroll Reveal
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
-
-ScrollReveal().reveal('.home-content', { origin: 'left', interval: 200 });
-ScrollReveal().reveal('.home-image', { origin: 'right' });
-ScrollReveal().reveal('.about-content, .skills-grid .skill-category', { origin: 'bottom', interval: 200 });
-ScrollReveal().reveal('.about-image, .education-item', { origin: 'top', interval: 200 });
-ScrollReveal().reveal('.projects-grid .project-box', { scale: 0.9, interval: 200 });
-ScrollReveal().reveal('.contact form', { origin: 'bottom' });
-
-// Typed.js
-new Typed('.typed-text', {
-  strings: [
-    'Full-Stack Developer',
-    'AI & ML Enthusiast',
-    'Software Engineer',
-    'Problem Solver'
-  ],
-
-  typeSpeed: 80,
-  backSpeed: 40,
-  backDelay: 1200,
-  loop: true,
-  contentType: 'null'
-});
-
-
-// Project card tilt effect
-document.querySelectorAll('.project-box').forEach(box => {
-    box.addEventListener('mousemove', e => {
-        const rect = box.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateX = (y / rect.height - 0.5) * 12;
-        const rotateY = (x / rect.width - 0.5) * -12;
-        box.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    });
-    box.addEventListener('mouseleave', () => {
-        box.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-    });
-});
-
-// Contact Form
-const form = document.querySelector('.contact form');
-const messageEl = document.getElementById('form-message');
-
-form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
+    for (let i = 0; i < COUNT; i++) {
+        particles.push({
+            x: Math.random() * (W || 1200),
+            y: Math.random() * (H || 800),
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            r: Math.random() * 2 + 1
         });
-        if (response.ok) {
-            messageEl.textContent = 'Message sent successfully!';
-            messageEl.style.color = 'limegreen';
-            form.reset();
-            setTimeout(() => messageEl.textContent = '', 5000);
-        } else {
-            throw new Error('Failed');
-        }
-    } catch (err) {
-        messageEl.textContent = 'Failed to send. Please try again.';
-        messageEl.style.color = 'red';
     }
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const skillButtons = document.querySelectorAll('.skill-btn');
-    const skillModal = document.getElementById('skillModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSkillsList = document.getElementById('modalSkillsList');
-    const modalClose = document.getElementById('modalClose');
 
-    const skillsData = {
-        programming: { title: "Programming Languages", skills: ["Python", "JavaScript", "SQL", "Java", "C/C++"] },
-        web: { title: "Web Technologies", skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "REST APIs"] },
-        databases: { title: "Databases", skills: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"] },
-        "data-analysis": { title: "Data Analysis & Visualization", skills: ["Excel", "Pandas", "NumPy", "Matplotlib", "Power BI (basic)"] },
-        "ml-ai": { title: "Machine Learning & AI", skills: ["Scikit-learn", "TensorFlow (basic)", "Data Preprocessing", "Feature Engineering", "Sentiment Analysis"] },
-        tools: { title: "Development Tools & Platforms", skills: ["Git/GitHub", "VS Code", "PyCharm", "IntelliJ", "Google Colab", "Jupyter Notebook", "phpMyAdmin", "Adminer"] }
-    };
-
-    skillButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const category = btn.dataset.category;
-            const data = skillsData[category];
-            if (data) {
-                modalTitle.textContent = data.title;
-                modalSkillsList.innerHTML = data.skills.map(s => `<li>${s}</li>`).join('');
-                skillModal.style.display = 'flex';
+    function drawParticles() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > W) p.vx *= -1;
+            if (p.y < 0 || p.y > H) p.vy *= -1;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(108,99,255,0.7)';
+            ctx.fill();
+        });
+        // Draw connecting lines
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(108,99,255,${0.18 * (1 - dist / 130)})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
             }
-        });
-    });
+        }
+        requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+}
 
-    modalClose.addEventListener('click', () => skillModal.style.display = 'none');
-    skillModal.addEventListener('click', e => { 
-        if (e.target === skillModal) skillModal.style.display = 'none'; 
+/* ── Hero word-by-word reveal (DOM-safe) ── */
+// Disabled — causes inline-block spans to break headline layout
+// const h1 = ...
+
+/* ── Magnetic button ── */
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px) translateY(-3px)`;
     });
-    document.addEventListener('keydown', e => { 
-        if (e.key === 'Escape') skillModal.style.display = 'none'; 
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
     });
 });
 
+/* ── Scroll fade-up observer ── */
+const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = `${i * 0.07}s`;
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
 
+document.querySelectorAll(
+    '.service-card, .work-card, .exp-item, .stack-group, .process-step, .about-img, .about-content, .contact-left, .contact-right'
+).forEach(el => {
+    el.classList.add('fade-up');
+    fadeObserver.observe(el);
+});
 
+/* ── Contact form ── */
+const form = document.getElementById('contact-form');
+const formMsg = document.getElementById('form-message');
+
+if (form) {
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.innerHTML = 'Sending… <i class="bx bx-loader-alt bx-spin"></i>';
+        btn.disabled = true;
+        try {
+            const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+            if (res.ok) {
+                formMsg.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
+                formMsg.style.color = '#00d4aa';
+                form.reset();
+            } else throw new Error();
+        } catch {
+            formMsg.textContent = '✗ Failed to send. Please email me directly at rishabhedu6@gmail.com';
+            formMsg.style.color = '#f87171';
+        }
+        btn.innerHTML = 'Send Message <i class="bx bx-send"></i>';
+        btn.disabled = false;
+        setTimeout(() => formMsg.textContent = '', 7000);
+    });
+}
