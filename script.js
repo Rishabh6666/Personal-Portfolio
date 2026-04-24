@@ -60,6 +60,12 @@ const dot = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
+if (isTouchDevice) {
+    document.body.classList.remove('no-cursor');
+    if (dot) dot.style.display = 'none';
+    if (ring) ring.style.display = 'none';
+}
+
 if (!isTouchDevice && dot && ring) {
     let mx = 0, my = 0, rx = 0, ry = 0;
 
@@ -142,7 +148,7 @@ if (canvas) {
 // const h1 = ...
 
 /* ── Magnetic button ── */
-document.querySelectorAll('.btn-primary').forEach(btn => {
+if (!isTouchDevice) document.querySelectorAll('.btn-primary').forEach(btn => {
     btn.addEventListener('mousemove', e => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;

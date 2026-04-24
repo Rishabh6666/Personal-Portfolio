@@ -334,7 +334,7 @@ section { padding: 10rem 8% 8rem; }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.4rem;
     max-width: 1300px;
     margin: 0 auto;
@@ -1134,12 +1134,13 @@ section { padding: 10rem 8% 8rem; }
 }
 
 @media (max-width: 480px) {
+    .services-grid { grid-template-columns: 1fr; }
     .hero-img-wrap { width: 240px; height: 280px; }
     .hero-content h1 { font-size: 3.4rem; }
     .hero-stats { flex-wrap: wrap; gap: 2rem; justify-content: center; }
     .stat { min-width: 8rem; text-align: center; }
     .process-steps { gap: 1.6rem; }
-    .services-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ===== CUSTOM CURSOR ===== */
