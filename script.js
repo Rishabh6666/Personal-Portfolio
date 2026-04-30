@@ -32,13 +32,19 @@ document.querySelectorAll('.navbar a').forEach(link => {
 /* ── Sticky header + active nav + back to top ── */
 const header = document.getElementById('header');
 const backToTop = document.getElementById('backToTop');
+const scrollIndicator = document.getElementById('scrollIndicator');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar a');
+const heroSection = document.getElementById('home');
 
 window.addEventListener('scroll', () => {
     const y = window.scrollY;
     header.classList.toggle('scrolled', y > 50);
     backToTop.classList.toggle('visible', y > 400);
+    if (scrollIndicator) {
+        const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : window.innerHeight;
+        scrollIndicator.classList.toggle('hidden', y > heroBottom * 0.4);
+    }
     let current = '';
     sections.forEach(sec => { if (y >= sec.offsetTop - 200) current = sec.getAttribute('id'); });
     navLinks.forEach(link => {
@@ -177,6 +183,66 @@ document.querySelectorAll(
     el.classList.add('fade-up');
     fadeObserver.observe(el);
 });
+
+/* ── Section header underline draw ── */
+const lineObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('line-visible');
+            lineObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.section-header h2').forEach(h => lineObserver.observe(h));
+
+/* ── Hero stat counter ── */
+const statData = [
+    { el: null, target: 1, suffix: '+' },
+    { el: null, target: 5, suffix: '+' },
+    { el: null, target: 100, suffix: '%' }
+];
+const statEls = document.querySelectorAll('.stat span');
+statEls.forEach((el, i) => { if (statData[i]) statData[i].el = el; });
+
+function animateCounter(obj) {
+    if (!obj.el) return;
+    let start = 0;
+    const duration = 900;
+    const step = timestamp => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        obj.el.textContent = Math.floor(progress * obj.target) + obj.suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else obj.el.classList.add('counted');
+    };
+    requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            statData.forEach(animateCounter);
+            counterObserver.disconnect();
+        }
+    });
+}, { threshold: 0.6 });
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) counterObserver.observe(statsEl);
+
+/* ── Card tilt effect ── */
+if (!isTouchDevice) {
+    document.querySelectorAll('.service-card, .work-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+}
 
 /* ── Contact form ── */
 const form = document.getElementById('contact-form');
