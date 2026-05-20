@@ -151,7 +151,7 @@ section { padding: 10rem 8% 8rem; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000;
+    z-index: 1100;
     transition: all 0.3s;
 }
 
@@ -1032,6 +1032,8 @@ section { padding: 10rem 8% 8rem; }
     html { font-size: 56%; }
     section { padding: 8rem 5% 6rem; }
 
+    .about, .contact { padding: 8rem 5% 6rem; }
+
     .menu-toggle {
         display: flex;
         align-items: center;
@@ -1045,8 +1047,6 @@ section { padding: 10rem 8% 8rem; }
         cursor: pointer;
         color: var(--text);
         transition: all 0.3s;
-        z-index: 1100;
-        position: relative;
     }
     .menu-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -1068,6 +1068,7 @@ section { padding: 10rem 8% 8rem; }
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1050;
         overflow-y: auto;
+        box-shadow: -10px 0 40px rgba(0,0,0,0.5);
     }
 
     .navbar.active { right: 0; }
@@ -1149,16 +1150,23 @@ section { padding: 10rem 8% 8rem; }
     .floating-card { display: none; }
     .about-img-wrap { max-width: 280px; }
     .about-img { height: 340px; }
+    .hero { padding: 12rem 5% 6rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .work-card.large .work-img { height: 240px; }
+    .work-card:not(.large) .work-img { height: 200px; }
 }
 
 @media (max-width: 480px) {
     .services-grid { grid-template-columns: 1fr; }
-    .hero-img-wrap { width: 240px; height: 280px; }
-    .hero-content h1 { font-size: 3.4rem; }
+    .hero-img-wrap { width: 220px; height: 260px; }
+    .hero-content h1 { font-size: 3rem; }
     .hero-stats { flex-wrap: wrap; gap: 2rem; justify-content: center; }
     .stat { min-width: 8rem; text-align: center; }
     .process-steps { gap: 1.6rem; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-step { min-width: unset; width: 100%; }
+    .contact-right { padding: 2.4rem 1.8rem; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
 }
 
 /* ===== CUSTOM CURSOR ===== */
